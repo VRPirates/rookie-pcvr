@@ -533,10 +533,10 @@ namespace RookiePCVR
             string errorMessage =
 $@"Unable to connect to Remote Server. Rookie is unable to connect to our Servers.
 
-First time launching Rookie? Please relaunch and try again.
+First time launching Rookie-PCVR? Please relaunch and try again.
 
 Things you can try:
-1) Move the Rookie directory (Folder containing AndroidSideloader.exe) into {Path.GetPathRoot(Environment.SystemDirectory)}RSL
+1) Move the Rookie-PCVR directory (Folder containing Rookie-PCVR.exe) into {Path.GetPathRoot(Environment.SystemDirectory)}RSL
 2) Try changing your systems DNS to either Cloudflare/Google/OpenDNS
 3) Try using a systemwide VPN like ProtonVPN
 4) Sponsor a private server (https://wiki.vrpirates.club/en/Howto/sponsored-mirrors)
