@@ -151,7 +151,7 @@ namespace AndroidSideloader
             {
                 if (!string.IsNullOrWhiteSpace(error))
                 {
-                    _ = Logger.Log($"Rclone error: {error}\n", "ERROR");
+                    _ = Logger.Log($"Rclone error: {error}\n", LogLevel.ERROR);
                 }
 
                 if (!string.IsNullOrWhiteSpace(output))
@@ -215,7 +215,7 @@ namespace AndroidSideloader
             //if there is one of these errors, we switch the mirrors
             if (error.Contains("400 Bad Request") || error.Contains("cannot fetch token") || error.Contains("authError") || error.Contains("quota") || error.Contains("exceeded") || error.Contains("directory not found") || error.Contains("Failed to"))
             {
-                _ = Logger.Log(error, "ERROR");
+                _ = Logger.Log(error, LogLevel.ERROR);
                 return new ProcessOutput("Upload Failed.", "Upload failed.");
             }
             else
@@ -228,7 +228,7 @@ namespace AndroidSideloader
             {
                 if (!string.IsNullOrWhiteSpace(error))
                 {
-                    _ = Logger.Log($"Rclone error: {error}\n", "ERROR");
+                    _ = Logger.Log($"Rclone error: {error}\n", LogLevel.ERROR);
                 }
 
                 if (!string.IsNullOrWhiteSpace(output))
@@ -307,7 +307,7 @@ namespace AndroidSideloader
                 || error.Contains("directory not found")
                 || error.Contains("Failed to"))
             {
-                _ = Logger.Log(error, "ERROR");
+                _ = Logger.Log(error, LogLevel.ERROR);
                 return new ProcessOutput("Failed to fetch from public mirror.", "Failed to fetch from public mirror.");
             }
             else
@@ -320,7 +320,7 @@ namespace AndroidSideloader
             {
                 if (!string.IsNullOrWhiteSpace(error))
                 {
-                    _ = Logger.Log($"Rclone error: {error}\n", "ERROR");
+                    _ = Logger.Log($"Rclone error: {error}\n", LogLevel.ERROR);
                 }
 
                 if (!string.IsNullOrWhiteSpace(output))

@@ -20,48 +20,20 @@ namespace AndroidSideloader
     {
         public static List<string> RemotesList = new List<string>();
 
-        public static string RcloneGamesFolder = "Quest Games";
+        public static string RcloneGamesFolder = "PCVR Games";
 
         //This shit sucks but i'll switch to programatically adding indexes from the gamelist txt sometimes maybe
 
         public static int GameNameIndex = 0;
-        public static int ReleaseNameIndex = 1;
-        public static int PackageNameIndex = 2;
-        public static int VersionCodeIndex = 3;
-        public static int ReleaseAPKPathIndex = 4;
-        public static int VersionNameIndex = 5;
+        public static int ReleaseAPKPathIndex = 1;
+        public static int VersionNameIndex = 2;
 
         public static List<string> gameProperties = new List<string>();
         /* Game Name
-         * Release Name
-         * Release APK Path
-         * Package Name
          * Version Code
          * Version Name
          */
         public static List<string[]> games = new List<string[]>();
-
-        public static string Nouns = Environment.CurrentDirectory + "\\nouns";
-        public static string ThumbnailsFolder = Environment.CurrentDirectory + "\\thumbnails";
-        public static string NotesFolder = Environment.CurrentDirectory + "\\notes";
-
-        public static void UpdateNouns(string remote)
-        {
-            _ = Logger.Log($"Updating Nouns");
-            _ = RCLONE.runRcloneCommand_DownloadConfig($"sync \"{remote}:{RcloneGamesFolder}/.meta/nouns\" \"{Nouns}\"");
-        }
-
-        public static void UpdateGamePhotos(string remote)
-        {
-            _ = Logger.Log($"Updating Thumbnails");
-            _ = RCLONE.runRcloneCommand_DownloadConfig($"sync \"{remote}:{RcloneGamesFolder}/.meta/thumbnails\" \"{ThumbnailsFolder}\"");
-        }
-
-        public static void UpdateGameNotes(string remote)
-        {
-            _ = Logger.Log($"Updating Game Notes");
-            _ = RCLONE.runRcloneCommand_DownloadConfig($"sync \"{remote}:{RcloneGamesFolder}/.meta/notes\" \"{NotesFolder}\"");
-        }
 
         public static void UpdateMetadataFromPublic()
         {
@@ -80,25 +52,6 @@ namespace AndroidSideloader
                     MainForm.PublicConfigFile.Password);
 
                 _ = Logger.Log($"Updating Metadata");
-
-                if (Directory.Exists(Nouns))
-                {
-                    Directory.Delete(Nouns, true);
-                }
-
-                if (Directory.Exists(ThumbnailsFolder))
-                {
-                    Directory.Delete(ThumbnailsFolder, true);
-                }
-
-                if (Directory.Exists(NotesFolder))
-                {
-                    Directory.Delete(NotesFolder, true);
-                }
-
-                Directory.Move($"{Environment.CurrentDirectory}\\meta\\.meta\\nouns", Nouns);
-                Directory.Move($"{Environment.CurrentDirectory}\\meta\\.meta\\thumbnails", ThumbnailsFolder);
-                Directory.Move($"{Environment.CurrentDirectory}\\meta\\.meta\\notes", NotesFolder);
 
                 _ = Logger.Log($"Initializing Games List");
                 string gameList = File.ReadAllText($"{Environment.CurrentDirectory}\\meta\\VRP-GameList.txt");
@@ -264,7 +217,7 @@ namespace AndroidSideloader
             }
             catch (Exception e)
             {
-                _ = Logger.Log($"Failed to update Upload config: {e.Message}", "ERROR");
+                _ = Logger.Log($"Failed to update Upload config: {e.Message}", LogLevel.ERROR);
             }
         }
 
@@ -277,7 +230,7 @@ namespace AndroidSideloader
             _ = Logger.Log($"Attempting to Update Public Config");
             try
             {
-                string configUrl = "https://wiki.vrpirates.club/downloads/vrp-public.json";
+                string configUrl = "https://wiki.vrpirates.club/downloads/vrp-public-pcvr.json";
 
                 HttpWebRequest getUrl = (HttpWebRequest)WebRequest.Create(configUrl);
                 using (StreamReader responseReader = new StreamReader(getUrl.GetResponse().GetResponseStream()))
@@ -286,14 +239,14 @@ namespace AndroidSideloader
 
                     _ = Logger.Log($"Retrieved updated config from: {configUrl}");
 
-                    File.WriteAllText(Environment.CurrentDirectory + "\\vrp-public.json", resultString);
+                    File.WriteAllText(Environment.CurrentDirectory + "\\vrp-public-pcvr.json", resultString);
 
                     _ = Logger.Log("Public config updated successfully.");
                 }
             }
             catch (Exception e)
             {
-                _ = Logger.Log($"Failed to update Public config: {e.Message}", "ERROR");
+                _ = Logger.Log($"Failed to update Public config: {e.Message}", LogLevel.ERROR);
             }
         }
 

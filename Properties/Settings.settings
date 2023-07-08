@@ -165,10 +165,10 @@
       <Value Profile="(Default)">25, 25, 25</Value>
     </Setting>
     <Setting Name="SubButtonColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">25, 25, 25</Value>
+      <Value Profile="(Default)">0, 0, 0, 0</Value>
     </Setting>
     <Setting Name="TextBoxColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">25, 25, 25</Value>
+      <Value Profile="(Default)">10, 10, 10</Value>
     </Setting>
     <Setting Name="ButtonColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
@@ -195,6 +195,9 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="singleThreadMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="virtualFilesystemCompatibility" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

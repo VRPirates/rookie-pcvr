@@ -5,3 +5,6 @@
 /.vs
 /MigrationBackup/20654f7a/AndroidSideloader
 /obj
+/bin/Debug
+*.xsd
+*.xml

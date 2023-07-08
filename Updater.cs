@@ -11,7 +11,7 @@ namespace AndroidSideloader
         private static string RawGitHubUrl;
         private static string GitHubUrl;
 
-        public static readonly string LocalVersion = "2.20";
+        public static readonly string LocalVersion = "1.0";
         public static string currentVersion = string.Empty;
         public static string changelog = string.Empty;
 
@@ -33,15 +33,13 @@ namespace AndroidSideloader
         //Call this to ask the user if they want to update
         public static void Update()
         {
-            RawGitHubUrl = $"https://raw.githubusercontent.com/nerdunit/androidsideloader";
-            GitHubUrl = $"https://github.com/nerdunit/androidsideloader";
+            RawGitHubUrl = $"https://raw.githubusercontent.com/VRPirates/PCVR-Rookie";
+            GitHubUrl = $"https://github.com/nerdunit/VRPirates/PCVR-Rookie";
             if (IsUpdateAvailable())
             {
                 UpdateForm upForm = new UpdateForm();
                 _ = upForm.ShowDialog(); ;
             }
-
-
         }
 
         //If the user wants to update
@@ -49,7 +47,6 @@ namespace AndroidSideloader
         {
             try
             {
-                _ = ADB.RunAdbCommandToString("kill-server");
                 WebClient fileClient = new WebClient();
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
