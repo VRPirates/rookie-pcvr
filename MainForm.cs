@@ -264,6 +264,7 @@ namespace RookiePCVR
             }
             if (hasPublicPCVRConfig)
             {
+                remotesList.Visible = false;
                 Thread t2 = new Thread(() =>
                 {
                     ChangeTitle("Updating Metadata...");

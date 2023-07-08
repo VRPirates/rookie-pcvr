@@ -72,8 +72,8 @@ namespace RookiePCVR
             this.remotesList = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMirror = new System.Windows.Forms.Label();
-            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -155,8 +155,7 @@ namespace RookiePCVR
             // 
             // gamesQueListBox
             // 
-            this.gamesQueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gamesQueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gamesQueListBox.BackColor = System.Drawing.Color.Black;
             this.gamesQueListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamesQueListBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
