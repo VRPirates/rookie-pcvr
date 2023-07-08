@@ -45,8 +45,6 @@ namespace RookiePCVR
             this.ReleaseAPKPathIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.VersionNameIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblSearchHelp = new System.Windows.Forms.Label();
             this.startsideloadbutton_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.devicesbutton_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.obbcopybutton_Tooltip = new System.Windows.Forms.ToolTip(this.components);
@@ -71,20 +69,18 @@ namespace RookiePCVR
             this.etaLabel_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.EnterInstallBox_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
-            this.lblQuickSearch = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.PictureBox();
             this.remotesList = new System.Windows.Forms.ComboBox();
-            this.lblMirror = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMirror = new System.Windows.Forms.Label();
+            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressBar
             // 
-            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.progressBar.ForeColor = System.Drawing.Color.Purple;
@@ -141,15 +137,15 @@ namespace RookiePCVR
             // 
             // freeDisclaimer
             // 
-            this.freeDisclaimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.freeDisclaimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.freeDisclaimer.AutoSize = true;
             this.freeDisclaimer.BackColor = System.Drawing.Color.Black;
             this.freeDisclaimer.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.freeDisclaimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.freeDisclaimer.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
-            this.freeDisclaimer.Location = new System.Drawing.Point(83, 493);
+            this.freeDisclaimer.Location = new System.Drawing.Point(203, 497);
             this.freeDisclaimer.Name = "freeDisclaimer";
             this.freeDisclaimer.Size = new System.Drawing.Size(246, 40);
             this.freeDisclaimer.TabIndex = 79;
@@ -159,7 +155,7 @@ namespace RookiePCVR
             // 
             // gamesQueListBox
             // 
-            this.gamesQueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.gamesQueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gamesQueListBox.BackColor = System.Drawing.Color.Black;
             this.gamesQueListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -172,14 +168,14 @@ namespace RookiePCVR
             this.gamesQueListBox.Location = new System.Drawing.Point(11, 435);
             this.gamesQueListBox.Margin = new System.Windows.Forms.Padding(2);
             this.gamesQueListBox.Name = "gamesQueListBox";
-            this.gamesQueListBox.Size = new System.Drawing.Size(389, 164);
+            this.gamesQueListBox.Size = new System.Drawing.Size(623, 164);
             this.gamesQueListBox.TabIndex = 9;
             this.gamesQueListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gamesQueListBox_MouseClick);
             // 
             // gamesListView
             // 
-            this.gamesListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gamesListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gamesListView.BackColor = System.Drawing.Color.Black;
             this.gamesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -191,11 +187,11 @@ namespace RookiePCVR
             this.gamesListView.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.gamesListView.HideSelection = false;
             this.gamesListView.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.gamesListView.Location = new System.Drawing.Point(12, 12);
+            this.gamesListView.Location = new System.Drawing.Point(12, 40);
             this.gamesListView.Name = "gamesListView";
             this.gamesListView.ShowGroups = false;
-            this.gamesListView.Size = new System.Drawing.Size(760, 378);
-            this.gamesListView.TabIndex = 6;
+            this.gamesListView.Size = new System.Drawing.Size(760, 350);
+            this.gamesListView.TabIndex = 0;
             this.gamesListView.UseCompatibleStateImageBehavior = false;
             this.gamesListView.View = System.Windows.Forms.View.Details;
             this.gamesListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
@@ -220,9 +216,6 @@ namespace RookiePCVR
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = global::RookiePCVR.Properties.Settings.Default.TextBoxColor;
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "TextBoxColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -230,42 +223,16 @@ namespace RookiePCVR
             this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.searchTextBox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
             this.searchTextBox.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
-            this.searchTextBox.Location = new System.Drawing.Point(285, 194);
-            this.searchTextBox.MaximumSize = new System.Drawing.Size(231, 26);
-            this.searchTextBox.MinimumSize = new System.Drawing.Size(231, 26);
+            this.searchTextBox.Location = new System.Drawing.Point(12, 8);
+            this.searchTextBox.MaximumSize = new System.Drawing.Size(760, 26);
+            this.searchTextBox.MinimumSize = new System.Drawing.Size(760, 26);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(231, 24);
+            this.searchTextBox.Size = new System.Drawing.Size(760, 24);
             this.searchTextBox.TabIndex = 5;
             this.searchTextBox.Text = "Search";
-            this.searchTextBox.Visible = false;
+            this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             this.searchTextBox.Leave += new System.EventHandler(this.searchTextBox_Leave);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(264, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 120);
-            this.label2.TabIndex = 89;
-            this.label2.Visible = false;
-            // 
-            // lblSearchHelp
-            // 
-            this.lblSearchHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSearchHelp.AutoSize = true;
-            this.lblSearchHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSearchHelp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSearchHelp.Location = new System.Drawing.Point(317, 153);
-            this.lblSearchHelp.Name = "lblSearchHelp";
-            this.lblSearchHelp.Size = new System.Drawing.Size(170, 51);
-            this.lblSearchHelp.TabIndex = 90;
-            this.lblSearchHelp.Text = "Start typing to search.\r\nPress ESC to close.\r\n\r\n";
-            this.lblSearchHelp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSearchHelp.Visible = false;
             // 
             // aboutBtn
             // 
@@ -280,7 +247,7 @@ namespace RookiePCVR
             this.aboutBtn.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.aboutBtn.Location = new System.Drawing.Point(0, 134);
             this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(365, 28);
+            this.aboutBtn.Size = new System.Drawing.Size(131, 28);
             this.aboutBtn.TabIndex = 5;
             this.aboutBtn.Text = " ?   ABOUT";
             this.aboutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -302,7 +269,7 @@ namespace RookiePCVR
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.Location = new System.Drawing.Point(0, 106);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(365, 28);
+            this.settingsButton.Size = new System.Drawing.Size(131, 28);
             this.settingsButton.TabIndex = 4;
             this.settingsButton.Text = "⚙ SETTINGS";
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -312,7 +279,7 @@ namespace RookiePCVR
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -325,6 +292,50 @@ namespace RookiePCVR
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(760, 34);
             this.panel2.TabIndex = 96;
+            // 
+            // remotesList
+            // 
+            this.remotesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.remotesList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.remotesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.remotesList.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.remotesList.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
+            this.remotesList.FormattingEnabled = true;
+            this.remotesList.Location = new System.Drawing.Point(0, 18);
+            this.remotesList.Margin = new System.Windows.Forms.Padding(2);
+            this.remotesList.Name = "remotesList";
+            this.remotesList.Size = new System.Drawing.Size(131, 26);
+            this.remotesList.TabIndex = 3;
+            this.remotesList.SelectedIndexChanged += new System.EventHandler(this.remotesList_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.settingsButton);
+            this.panel1.Controls.Add(this.aboutBtn);
+            this.panel1.Controls.Add(this.remotesList);
+            this.panel1.Controls.Add(this.lblMirror);
+            this.panel1.Location = new System.Drawing.Point(639, 435);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(133, 164);
+            this.panel1.TabIndex = 97;
+            // 
+            // lblMirror
+            // 
+            this.lblMirror.BackColor = System.Drawing.Color.Transparent;
+            this.lblMirror.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMirror.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblMirror.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblMirror.Location = new System.Drawing.Point(0, 0);
+            this.lblMirror.Name = "lblMirror";
+            this.lblMirror.Size = new System.Drawing.Size(131, 18);
+            this.lblMirror.TabIndex = 90;
+            this.lblMirror.Text = "Mirror #";
+            this.lblMirror.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // downloadInstallGameButton
             // 
@@ -345,83 +356,12 @@ namespace RookiePCVR
             this.downloadInstallGameButton.Name = "downloadInstallGameButton";
             this.downloadInstallGameButton.Radius = 5;
             this.downloadInstallGameButton.Size = new System.Drawing.Size(367, 34);
-            this.downloadInstallGameButton.Stroke = false;
-            this.downloadInstallGameButton.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.downloadInstallGameButton.Stroke = true;
+            this.downloadInstallGameButton.StrokeColor = System.Drawing.Color.White;
             this.downloadInstallGameButton.TabIndex = 94;
             this.downloadInstallGameButton.Text = "Download Game/Add To Queue ⮩ ";
             this.downloadInstallGameButton.Transparency = false;
             this.downloadInstallGameButton.Click += new System.EventHandler(this.downloadInstallGameButton_Click);
-            // 
-            // lblQuickSearch
-            // 
-            this.lblQuickSearch.AutoSize = true;
-            this.lblQuickSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblQuickSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblQuickSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblQuickSearch.Location = new System.Drawing.Point(266, 3);
-            this.lblQuickSearch.Name = "lblQuickSearch";
-            this.lblQuickSearch.Size = new System.Drawing.Size(98, 18);
-            this.lblQuickSearch.TabIndex = 90;
-            this.lblQuickSearch.Text = "Quick Search";
-            this.lblQuickSearch.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BackgroundImage = global::RookiePCVR.Properties.Resources.SearchGlass;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSearch.Location = new System.Drawing.Point(310, 24);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(17, 19);
-            this.btnSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnSearch.TabIndex = 91;
-            this.btnSearch.TabStop = false;
-            this.btnSearch.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // remotesList
-            // 
-            this.remotesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.remotesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.remotesList.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
-            this.remotesList.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
-            this.remotesList.FormattingEnabled = true;
-            this.remotesList.Location = new System.Drawing.Point(6, 23);
-            this.remotesList.Margin = new System.Windows.Forms.Padding(2);
-            this.remotesList.Name = "remotesList";
-            this.remotesList.Size = new System.Drawing.Size(62, 26);
-            this.remotesList.TabIndex = 3;
-            this.remotesList.SelectedIndexChanged += new System.EventHandler(this.remotesList_SelectedIndexChanged);
-            // 
-            // lblMirror
-            // 
-            this.lblMirror.AutoSize = true;
-            this.lblMirror.BackColor = System.Drawing.Color.Transparent;
-            this.lblMirror.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblMirror.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblMirror.Location = new System.Drawing.Point(3, 3);
-            this.lblMirror.Name = "lblMirror";
-            this.lblMirror.Size = new System.Drawing.Size(60, 18);
-            this.lblMirror.TabIndex = 90;
-            this.lblMirror.Text = "Mirror #";
-            this.lblMirror.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblQuickSearch);
-            this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.settingsButton);
-            this.panel1.Controls.Add(this.aboutBtn);
-            this.panel1.Controls.Add(this.lblMirror);
-            this.panel1.Controls.Add(this.remotesList);
-            this.panel1.Location = new System.Drawing.Point(405, 435);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(367, 164);
-            this.panel1.TabIndex = 97;
             // 
             // MainForm
             // 
@@ -430,14 +370,12 @@ namespace RookiePCVR
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::RookiePCVR.Properties.Settings.Default.BackColor;
             this.ClientSize = new System.Drawing.Size(784, 610);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.lblSearchHelp);
             this.Controls.Add(this.freeDisclaimer);
             this.Controls.Add(this.gamesQueListBox);
             this.Controls.Add(this.downloadingLabel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.gamesListView);
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
@@ -452,9 +390,7 @@ namespace RookiePCVR
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,8 +405,6 @@ namespace RookiePCVR
         private System.Windows.Forms.ListView gamesListView;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label downloadingLabel;
-        private System.Windows.Forms.Label lblSearchHelp;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader ReleaseAPKPathIndex;
         public System.Windows.Forms.ColumnHeader VersionNameIndex;
         private RoundButton downloadInstallGameButton;
@@ -497,12 +431,11 @@ namespace RookiePCVR
         private ToolTip EnterInstallBox_Tooltip;
         private Panel panel2;
         public ColumnHeader GameNameIndex;
-        private Label lblQuickSearch;
-        private PictureBox btnSearch;
         private Button aboutBtn;
         private Button settingsButton;
         public ComboBox remotesList;
-        private Label lblMirror;
         private Panel panel1;
+        private Label lblMirror;
+        private FontDialog fontDialog1;
     }
 }

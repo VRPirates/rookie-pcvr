@@ -1,8 +1,6 @@
 using RookiePCVR.Models;
 using RookiePCVR.Utilities;
 using JR.Utils.GUI.Forms;
-using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.WinForms;
 using Newtonsoft.Json;
 using SergeUtils;
 using System;
@@ -90,10 +88,6 @@ namespace RookiePCVR
 
             lvwColumnSorter = new ListViewColumnSorter();
             gamesListView.ListViewItemSorter = lvwColumnSorter;
-            if (searchTextBox.Visible)
-            {
-                _ = searchTextBox.Focus();
-            }
         }
 
         public static string DonorApps = "";
@@ -929,17 +923,6 @@ Things you can try:
             gamesListView.Sort();
         }
 
-        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Escape)
-            {
-                searchTextBox.Visible = false;
-                label2.Visible = false;
-                lblSearchHelp.Visible = false;
-                label2.Visible = false;
-            }
-        }
-
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
             _debounceTimer.Stop();
@@ -1010,30 +993,12 @@ Things you can try:
 
         private void freeDisclaimer_Click(object sender, EventArgs e)
         {
-            _ = Process.Start("https://github.com/nerdunit/androidsideloader");
+            _ = Process.Start("https://github.com/Chax1/PCVR-Rookie");
         }
  
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            searchTextBox.Clear();
-            searchTextBox.Visible = true;
-            label2.Visible = true;
-            lblSearchHelp.Visible = true;
-            _ = searchTextBox.Focus();
-        }
-
         private void searchTextBox_Leave(object sender, EventArgs e)
         {
-            if (searchTextBox.Visible)
-            {
-                searchTextBox.Visible = false;
-                label2.Visible = false;
-                lblSearchHelp.Visible = false;
-            }
-            else
-            {
-                _ = gamesListView.Focus();
-            }
+            _ = gamesListView.Focus();
         }
 
         private void gamesQueListBox_MouseDown(object sender, MouseEventArgs e)
@@ -1049,6 +1014,12 @@ Things you can try:
         private void gamesQueListBox_DragOver(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
+        }
+
+        private void searchTextBox_Click(object sender, EventArgs e)
+        {
+            searchTextBox.Clear();
+            _ = searchTextBox.Focus();
         }
     }
 

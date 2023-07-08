@@ -117,8 +117,8 @@ namespace RookiePCVR
             this.setDownloadDirectory.Name = "setDownloadDirectory";
             this.setDownloadDirectory.Radius = 5;
             this.setDownloadDirectory.Size = new System.Drawing.Size(285, 31);
-            this.setDownloadDirectory.Stroke = false;
-            this.setDownloadDirectory.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.setDownloadDirectory.Stroke = true;
+            this.setDownloadDirectory.StrokeColor = System.Drawing.Color.White;
             this.setDownloadDirectory.TabIndex = 23;
             this.setDownloadDirectory.Text = "Set Download Directory";
             this.setDownloadDirectory.Transparency = false;
@@ -138,8 +138,8 @@ namespace RookiePCVR
             this.btnOpenDebug.Name = "btnOpenDebug";
             this.btnOpenDebug.Radius = 5;
             this.btnOpenDebug.Size = new System.Drawing.Size(285, 31);
-            this.btnOpenDebug.Stroke = false;
-            this.btnOpenDebug.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.btnOpenDebug.Stroke = true;
+            this.btnOpenDebug.StrokeColor = System.Drawing.Color.White;
             this.btnOpenDebug.TabIndex = 21;
             this.btnOpenDebug.Text = "Open Debug Log";
             this.btnOpenDebug.Transparency = false;
@@ -159,8 +159,8 @@ namespace RookiePCVR
             this.btnResetDebug.Name = "btnResetDebug";
             this.btnResetDebug.Radius = 5;
             this.btnResetDebug.Size = new System.Drawing.Size(285, 31);
-            this.btnResetDebug.Stroke = false;
-            this.btnResetDebug.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.btnResetDebug.Stroke = true;
+            this.btnResetDebug.StrokeColor = System.Drawing.Color.White;
             this.btnResetDebug.TabIndex = 20;
             this.btnResetDebug.Text = "Reset Debug Log";
             this.btnResetDebug.Transparency = false;
@@ -180,8 +180,8 @@ namespace RookiePCVR
             this.btnUploadDebug.Name = "btnUploadDebug";
             this.btnUploadDebug.Radius = 5;
             this.btnUploadDebug.Size = new System.Drawing.Size(285, 31);
-            this.btnUploadDebug.Stroke = false;
-            this.btnUploadDebug.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.btnUploadDebug.Stroke = true;
+            this.btnUploadDebug.StrokeColor = System.Drawing.Color.White;
             this.btnUploadDebug.TabIndex = 19;
             this.btnUploadDebug.Text = "Upload Debug Log";
             this.btnUploadDebug.Transparency = false;
@@ -201,8 +201,8 @@ namespace RookiePCVR
             this.resetSettingsButton.Name = "resetSettingsButton";
             this.resetSettingsButton.Radius = 5;
             this.resetSettingsButton.Size = new System.Drawing.Size(133, 31);
-            this.resetSettingsButton.Stroke = false;
-            this.resetSettingsButton.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.resetSettingsButton.Stroke = true;
+            this.resetSettingsButton.StrokeColor = System.Drawing.Color.White;
             this.resetSettingsButton.TabIndex = 18;
             this.resetSettingsButton.Text = "Reset Settings";
             this.resetSettingsButton.Transparency = false;
@@ -222,8 +222,8 @@ namespace RookiePCVR
             this.applyButton.Name = "applyButton";
             this.applyButton.Radius = 5;
             this.applyButton.Size = new System.Drawing.Size(133, 31);
-            this.applyButton.Stroke = false;
-            this.applyButton.StrokeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.applyButton.Stroke = true;
+            this.applyButton.StrokeColor = System.Drawing.Color.White;
             this.applyButton.TabIndex = 17;
             this.applyButton.Text = "Apply Settings";
             this.applyButton.Transparency = false;
