@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AndroidSideloader.Utilities
+namespace RookiePCVR.Utilities
 {
     internal class GeneralUtilities
     {

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     public partial class UpdateForm : Form
     {

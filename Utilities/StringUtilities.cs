@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace AndroidSideloader.Utilities
+namespace RookiePCVR.Utilities
 {
     internal class StringUtilities
     {

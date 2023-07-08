@@ -1,4 +1,4 @@
-﻿namespace AndroidSideloader
+﻿namespace RookiePCVR
 {
     public class ProcessOutput
     {

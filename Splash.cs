@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     public partial class Splash : Form
     {

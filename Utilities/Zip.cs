@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 
-namespace AndroidSideloader.Utilities
+namespace RookiePCVR.Utilities
 {
     internal class Zip
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     partial class UpdateForm
     {
@@ -35,21 +35,21 @@ namespace AndroidSideloader
             this.UpdateVerLabel = new System.Windows.Forms.Label();
             this.CurVerLabel = new System.Windows.Forms.Label();
             this.SkipUpdate = new System.Windows.Forms.Label();
-            this.YesUpdate = new AndroidSideloader.RoundButton();
+            this.YesUpdate = new RookiePCVR.RoundButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = global::AndroidSideloader.Properties.Settings.Default.BackColor;
-            this.panel1.BackgroundImage = global::AndroidSideloader.Properties.Resources.pattern_cubes_1_1_1_0_0_0_1__000000_212121;
+            this.panel1.BackColor = global::RookiePCVR.Properties.Settings.Default.BackColor;
+            this.panel1.BackgroundImage = global::RookiePCVR.Properties.Resources.pattern_cubes_1_1_1_0_0_0_1__000000_212121;
             this.panel1.Controls.Add(this.YesUpdate);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.UpdateVerLabel);
             this.panel1.Controls.Add(this.CurVerLabel);
             this.panel1.Controls.Add(this.SkipUpdate);
-            this.panel1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.panel1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.panel1.Location = new System.Drawing.Point(-6, -6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(474, 305);
@@ -60,9 +60,9 @@ namespace AndroidSideloader
             // 
             // panel3
             // 
-            this.panel3.BackColor = global::AndroidSideloader.Properties.Settings.Default.SubButtonColor;
+            this.panel3.BackColor = global::RookiePCVR.Properties.Settings.Default.SubButtonColor;
             this.panel3.Controls.Add(this.UpdateTextBox);
-            this.panel3.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "SubButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.panel3.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "SubButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.panel3.Location = new System.Drawing.Point(21, 19);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(432, 218);
@@ -70,9 +70,9 @@ namespace AndroidSideloader
             // 
             // UpdateTextBox
             // 
-            this.UpdateTextBox.BackColor = global::AndroidSideloader.Properties.Settings.Default.ComboBoxColor;
+            this.UpdateTextBox.BackColor = global::RookiePCVR.Properties.Settings.Default.ComboBoxColor;
             this.UpdateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UpdateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "ComboBoxColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.UpdateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "ComboBoxColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.UpdateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.UpdateTextBox.ForeColor = System.Drawing.Color.White;
             this.UpdateTextBox.Location = new System.Drawing.Point(12, 8);

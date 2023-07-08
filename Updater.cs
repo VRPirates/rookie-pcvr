@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     internal class Updater
     {
@@ -56,7 +56,7 @@ namespace AndroidSideloader
                 _ = Logger.Log($"Starting {AppName} v{currentVersion}.exe");
                 _ = Process.Start($"{AppName} v{currentVersion}.exe");
                 //Delete current version
-                AndroidSideloader.Utilities.GeneralUtilities.Melt();
+                RookiePCVR.Utilities.GeneralUtilities.Melt();
             }
             catch { }
         }

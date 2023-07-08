@@ -1,4 +1,4 @@
-﻿using AndroidSideloader.Utilities;
+﻿using RookiePCVR.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     internal class rcloneFolder
     {

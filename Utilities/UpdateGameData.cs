@@ -1,4 +1,4 @@
-﻿namespace AndroidSideloader.Utilities
+﻿namespace RookiePCVR.Utilities
 {
     internal class UpdateGameData
     {

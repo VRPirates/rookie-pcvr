@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CC8BE9F0-CE07-406A-A378-81D9CFE4CC1D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AndroidSideloader</RootNamespace>
-    <AssemblyName>AndroidSideloader</AssemblyName>
+    <RootNamespace>RookiePCVR</RootNamespace>
+    <AssemblyName>Rookie-PCVR</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -61,7 +61,7 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>AndroidSideloader.Program</StartupObject>
+    <StartupObject>RookiePCVR.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -240,9 +240,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Rookie Offline.cmd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="version" />
   </ItemGroup>
   <ItemGroup>

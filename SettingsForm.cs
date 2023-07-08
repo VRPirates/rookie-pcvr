@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     public partial class SettingsForm : Form
     {

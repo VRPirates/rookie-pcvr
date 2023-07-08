@@ -1,5 +1,5 @@
-using AndroidSideloader.Models;
-using AndroidSideloader.Utilities;
+using RookiePCVR.Models;
+using RookiePCVR.Utilities;
 using JR.Utils.GUI.Forms;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
@@ -22,7 +22,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     public partial class MainForm : Form
     {
@@ -44,7 +44,6 @@ namespace AndroidSideloader
         public bool keyheld;
         public static string CurrAPK;
         public static string CurrPCKG;
-        private readonly List<UploadGame> gamesToUpload = new List<UploadGame>();
         public static bool debugMode = false;
         public bool DeviceConnected = false;
 

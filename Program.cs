@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Permissions;
 using System.Windows.Forms;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     internal static class Program
     {

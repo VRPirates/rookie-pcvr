@@ -4,7 +4,7 @@ using System.Management;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     internal class SideloaderUtilities
     {

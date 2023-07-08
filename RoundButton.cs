@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     [Description("Rounded Button")]
     public class RoundButton : Control, IButtonControl

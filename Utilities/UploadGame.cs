@@ -1,5 +1,5 @@
-﻿namespace AndroidSideloader.Utilities
-{
+﻿namespace RookiePCVR.Utilities
+{   
     internal class UploadGame
     {
         public UploadGame(string Uploadcommand, string Pckgcommand, string Uploadgamename, ulong Uploadversion, bool isUpdate)

@@ -1,9 +1,9 @@
 ﻿
-using AndroidSideloader.Properties;
+using RookiePCVR.Properties;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     partial class MainForm
     {
@@ -71,7 +71,7 @@ namespace AndroidSideloader
             this.etaLabel_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.EnterInstallBox_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.downloadInstallGameButton = new AndroidSideloader.RoundButton();
+            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
             this.lblQuickSearch = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.PictureBox();
             this.remotesList = new System.Windows.Forms.ComboBox();
@@ -84,7 +84,7 @@ namespace AndroidSideloader
             // 
             // progressBar
             // 
-            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.progressBar.ForeColor = System.Drawing.Color.Purple;
@@ -109,10 +109,10 @@ namespace AndroidSideloader
             // 
             this.speedLabel.AutoSize = true;
             this.speedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.speedLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.speedLabel.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.speedLabel.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.speedLabel.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.speedLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.speedLabel.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.speedLabel.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.speedLabel.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.speedLabel.Location = new System.Drawing.Point(2, 14);
             this.speedLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.speedLabel.Name = "speedLabel";
@@ -125,10 +125,10 @@ namespace AndroidSideloader
             // 
             this.etaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.etaLabel.BackColor = System.Drawing.Color.Transparent;
-            this.etaLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.etaLabel.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.etaLabel.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.etaLabel.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.etaLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.etaLabel.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.etaLabel.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.etaLabel.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.etaLabel.Location = new System.Drawing.Point(192, 14);
             this.etaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.etaLabel.Name = "etaLabel";
@@ -141,14 +141,14 @@ namespace AndroidSideloader
             // 
             // freeDisclaimer
             // 
-            this.freeDisclaimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.freeDisclaimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.freeDisclaimer.AutoSize = true;
             this.freeDisclaimer.BackColor = System.Drawing.Color.Black;
-            this.freeDisclaimer.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.freeDisclaimer.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.freeDisclaimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.freeDisclaimer.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.freeDisclaimer.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.freeDisclaimer.Location = new System.Drawing.Point(83, 493);
             this.freeDisclaimer.Name = "freeDisclaimer";
             this.freeDisclaimer.Size = new System.Drawing.Size(246, 40);
@@ -159,14 +159,14 @@ namespace AndroidSideloader
             // 
             // gamesQueListBox
             // 
-            this.gamesQueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.gamesQueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gamesQueListBox.BackColor = System.Drawing.Color.Black;
             this.gamesQueListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamesQueListBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.gamesQueListBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.gamesQueListBox.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.gamesQueListBox.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.gamesQueListBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.gamesQueListBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.gamesQueListBox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.gamesQueListBox.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.gamesQueListBox.FormattingEnabled = true;
             this.gamesQueListBox.ItemHeight = 18;
             this.gamesQueListBox.Location = new System.Drawing.Point(11, 435);
@@ -178,17 +178,17 @@ namespace AndroidSideloader
             // 
             // gamesListView
             // 
-            this.gamesListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gamesListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gamesListView.BackColor = System.Drawing.Color.Black;
             this.gamesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.GameNameIndex,
             this.ReleaseAPKPathIndex,
             this.VersionNameIndex});
-            this.gamesListView.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.gamesListView.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.gamesListView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gamesListView.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.gamesListView.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.gamesListView.HideSelection = false;
             this.gamesListView.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.gamesListView.Location = new System.Drawing.Point(12, 12);
@@ -220,16 +220,16 @@ namespace AndroidSideloader
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.BackColor = global::AndroidSideloader.Properties.Settings.Default.TextBoxColor;
+            this.searchTextBox.BackColor = global::RookiePCVR.Properties.Settings.Default.TextBoxColor;
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "TextBoxColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.searchTextBox.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.searchTextBox.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "TextBoxColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.searchTextBox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.searchTextBox.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.searchTextBox.Location = new System.Drawing.Point(285, 194);
             this.searchTextBox.MaximumSize = new System.Drawing.Size(231, 26);
             this.searchTextBox.MinimumSize = new System.Drawing.Size(231, 26);
@@ -253,8 +253,8 @@ namespace AndroidSideloader
             // 
             // lblSearchHelp
             // 
-            this.lblSearchHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblSearchHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearchHelp.AutoSize = true;
             this.lblSearchHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
@@ -271,13 +271,13 @@ namespace AndroidSideloader
             // 
             this.aboutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aboutBtn.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.aboutBtn.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.aboutBtn.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.aboutBtn.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.aboutBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aboutBtn.FlatAppearance.BorderSize = 0;
             this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aboutBtn.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.aboutBtn.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.aboutBtn.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.aboutBtn.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.aboutBtn.Location = new System.Drawing.Point(0, 134);
             this.aboutBtn.Name = "aboutBtn";
             this.aboutBtn.Size = new System.Drawing.Size(365, 28);
@@ -292,13 +292,13 @@ namespace AndroidSideloader
             // 
             this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.settingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.settingsButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.settingsButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.settingsButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.settingsButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.settingsButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.settingsButton.FlatAppearance.BorderSize = 0;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.settingsButton.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.settingsButton.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.settingsButton.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.Location = new System.Drawing.Point(0, 106);
             this.settingsButton.Name = "settingsButton";
@@ -312,7 +312,7 @@ namespace AndroidSideloader
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -332,12 +332,12 @@ namespace AndroidSideloader
             this.downloadInstallGameButton.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.downloadInstallGameButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.downloadInstallGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "SubButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "SubButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.downloadInstallGameButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.downloadInstallGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.downloadInstallGameButton.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.downloadInstallGameButton.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.downloadInstallGameButton.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.downloadInstallGameButton.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.downloadInstallGameButton.Location = new System.Drawing.Point(393, 0);
@@ -368,7 +368,7 @@ namespace AndroidSideloader
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BackgroundImage = global::AndroidSideloader.Properties.Resources.SearchGlass;
+            this.btnSearch.BackgroundImage = global::RookiePCVR.Properties.Resources.SearchGlass;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSearch.Location = new System.Drawing.Point(310, 24);
             this.btnSearch.Name = "btnSearch";
@@ -381,11 +381,11 @@ namespace AndroidSideloader
             // remotesList
             // 
             this.remotesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AndroidSideloader.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.remotesList.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.remotesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.remotesList.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
-            this.remotesList.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
+            this.remotesList.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.remotesList.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
             this.remotesList.FormattingEnabled = true;
             this.remotesList.Location = new System.Drawing.Point(6, 23);
             this.remotesList.Margin = new System.Windows.Forms.Padding(2);
@@ -409,7 +409,7 @@ namespace AndroidSideloader
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblQuickSearch);
@@ -428,7 +428,7 @@ namespace AndroidSideloader
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = global::AndroidSideloader.Properties.Settings.Default.BackColor;
+            this.BackColor = global::RookiePCVR.Properties.Settings.Default.BackColor;
             this.ClientSize = new System.Drawing.Size(784, 610);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -439,7 +439,7 @@ namespace AndroidSideloader
             this.Controls.Add(this.downloadingLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gamesListView);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 649);

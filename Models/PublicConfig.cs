@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace AndroidSideloader.Models
+namespace RookiePCVR.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class PublicConfig

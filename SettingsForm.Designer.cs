@@ -1,5 +1,5 @@
 ﻿
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     partial class SettingsForm
     {
@@ -35,12 +35,12 @@ namespace AndroidSideloader
             this.downloadDirectorySetter = new System.Windows.Forms.FolderBrowserDialog();
             this.backupDirectorySetter = new System.Windows.Forms.FolderBrowserDialog();
             this.singleThread = new System.Windows.Forms.CheckBox();
-            this.setDownloadDirectory = new AndroidSideloader.RoundButton();
-            this.btnOpenDebug = new AndroidSideloader.RoundButton();
-            this.btnResetDebug = new AndroidSideloader.RoundButton();
-            this.btnUploadDebug = new AndroidSideloader.RoundButton();
-            this.resetSettingsButton = new AndroidSideloader.RoundButton();
-            this.applyButton = new AndroidSideloader.RoundButton();
+            this.setDownloadDirectory = new RookiePCVR.RoundButton();
+            this.btnOpenDebug = new RookiePCVR.RoundButton();
+            this.btnResetDebug = new RookiePCVR.RoundButton();
+            this.btnUploadDebug = new RookiePCVR.RoundButton();
+            this.resetSettingsButton = new RookiePCVR.RoundButton();
+            this.applyButton = new RookiePCVR.RoundButton();
             this.virtualFilesystemCompatibilityCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -48,8 +48,8 @@ namespace AndroidSideloader
             // 
             this.checkForUpdatesCheckBox.AutoSize = true;
             this.checkForUpdatesCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.checkForUpdatesCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkForUpdatesCheckBox.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
+            this.checkForUpdatesCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkForUpdatesCheckBox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
             this.checkForUpdatesCheckBox.Location = new System.Drawing.Point(12, 12);
             this.checkForUpdatesCheckBox.Name = "checkForUpdatesCheckBox";
             this.checkForUpdatesCheckBox.Size = new System.Drawing.Size(148, 22);
@@ -62,8 +62,8 @@ namespace AndroidSideloader
             // 
             this.updateConfigCheckBox.AutoSize = true;
             this.updateConfigCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.updateConfigCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.updateConfigCheckBox.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
+            this.updateConfigCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.updateConfigCheckBox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
             this.updateConfigCheckBox.Location = new System.Drawing.Point(11, 40);
             this.updateConfigCheckBox.Name = "updateConfigCheckBox";
             this.updateConfigCheckBox.Size = new System.Drawing.Size(208, 22);
@@ -93,8 +93,8 @@ namespace AndroidSideloader
             // 
             this.singleThread.AutoSize = true;
             this.singleThread.BackColor = System.Drawing.Color.Transparent;
-            this.singleThread.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.singleThread.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
+            this.singleThread.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.singleThread.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
             this.singleThread.Location = new System.Drawing.Point(11, 68);
             this.singleThread.Name = "singleThread";
             this.singleThread.Size = new System.Drawing.Size(186, 22);
@@ -233,8 +233,8 @@ namespace AndroidSideloader
             // 
             this.virtualFilesystemCompatibilityCheckbox.AutoSize = true;
             this.virtualFilesystemCompatibilityCheckbox.BackColor = System.Drawing.Color.Transparent;
-            this.virtualFilesystemCompatibilityCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::AndroidSideloader.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.virtualFilesystemCompatibilityCheckbox.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
+            this.virtualFilesystemCompatibilityCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.virtualFilesystemCompatibilityCheckbox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
             this.virtualFilesystemCompatibilityCheckbox.Location = new System.Drawing.Point(11, 96);
             this.virtualFilesystemCompatibilityCheckbox.Name = "virtualFilesystemCompatibilityCheckbox";
             this.virtualFilesystemCompatibilityCheckbox.Size = new System.Drawing.Size(279, 22);
@@ -246,7 +246,7 @@ namespace AndroidSideloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = global::AndroidSideloader.Properties.Settings.Default.BackColor;
+            this.BackColor = global::RookiePCVR.Properties.Settings.Default.BackColor;
             this.ClientSize = new System.Drawing.Size(339, 374);
             this.Controls.Add(this.virtualFilesystemCompatibilityCheckbox);
             this.Controls.Add(this.singleThread);
@@ -259,7 +259,7 @@ namespace AndroidSideloader
             this.Controls.Add(this.crashlogID);
             this.Controls.Add(this.updateConfigCheckBox);
             this.Controls.Add(this.checkForUpdatesCheckBox);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::AndroidSideloader.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "BackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

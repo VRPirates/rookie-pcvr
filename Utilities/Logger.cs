@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace AndroidSideloader
+namespace RookiePCVR
 {
     public enum LogLevel
     {
