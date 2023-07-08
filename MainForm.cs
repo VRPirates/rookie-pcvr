@@ -54,7 +54,6 @@ namespace AndroidSideloader
 #endif
 
         private bool isLoading = true;
-        public static bool isOffline = false;
         public static bool hasPublicPCVRConfig = false;
         public static PublicConfig PublicConfigFile;
         public static string PublicMirrorExtraArgs = " --tpslimit 1.0 --tpslimit-burst 3";
@@ -63,20 +62,6 @@ namespace AndroidSideloader
         private List<ListViewItem> _allItems;
         public MainForm()
         {
-            // check for offline mode
-            string[] args = Environment.GetCommandLineArgs();
-            foreach (string arg in args)
-            {
-                if (arg == "--offline")
-                {
-                    isOffline = true;
-                }
-            }
-            if (isOffline)
-            {
-                _ = FlexibleMessageBox.Show(Program.form, "Offline mode activated. You can't download games in this mode, only do local stuff.");
-            }
-
             InitializeComponent();
             _debounceTimer = new System.Windows.Forms.Timer
             {
@@ -85,34 +70,6 @@ namespace AndroidSideloader
             };
             _debounceTimer.Tick += async (sender, e) => await RunSearch();
             gamesQueListBox.DataSource = gamesQueueList;
-            //Time between asking for new apps if user clicks No. 96,0,0 DEFAULT
-            TimeSpan newDayReference = new TimeSpan(96, 0, 0);
-            //Time between asking for updates after uploading. 72,0,0 DEFAULT
-            TimeSpan newDayReference2 = new TimeSpan(72, 0, 0);
-            TimeSpan comparison;
-            TimeSpan comparison2;
-
-            //These two variables set to show difference.
-            DateTime A = Properties.Settings.Default.LastLaunch;
-            DateTime B = DateTime.Now;
-            DateTime C = Properties.Settings.Default.LastLaunch2;
-            comparison = B - A;
-            comparison2 = B - C;
-            // If enough time has passed reset property containing packagenames
-            if (comparison > newDayReference)
-            {
-                Properties.Settings.Default.ListUpped = false;
-                Properties.Settings.Default.NonAppPackages = "";
-                Properties.Settings.Default.AppPackages = "";
-                Properties.Settings.Default.LastLaunch = DateTime.Now;
-                Properties.Settings.Default.Save();
-            }
-            if (comparison2 > newDayReference2)
-            {
-                Properties.Settings.Default.LastLaunch2 = DateTime.Now;
-                Properties.Settings.Default.SubmittedUpdates = "";
-                Properties.Settings.Default.Save();
-            }
             //Time for debuglog
             string launchtime = DateTime.Now.ToString("hh:mmtt(UTC)");
             _ = Logger.Log($"\n------\n------\nProgram Launched at: {launchtime}\n------\n------");
@@ -149,9 +106,6 @@ namespace AndroidSideloader
         {
             Splash splash = new Splash();
             splash.Show();
-
-            if (!isOffline)
-            {
                 if (File.Exists($"{Environment.CurrentDirectory}\\vrp-public-pcvr.json"))
                 {
                     Thread worker = new Thread(() =>
@@ -193,7 +147,6 @@ namespace AndroidSideloader
                         Directory.Delete(@"C:\RSL\EBWebView", true);
                     }
                 }
-            }
 
             Properties.Settings.Default.MainDir = Environment.CurrentDirectory;
             Properties.Settings.Default.Save();
@@ -215,10 +168,7 @@ namespace AndroidSideloader
                     File.Delete($"{Properties.Settings.Default.CurrentLogPath}");
                 }
             }
-            if (!isOffline)
-            {
-                RCLONE.Init();
-            }
+            RCLONE.Init();
             if (Properties.Settings.Default.CallUpgrade)
             {
                 Properties.Settings.Default.Upgrade();
@@ -266,11 +216,6 @@ namespace AndroidSideloader
                 lblMirror.Text = " Public Mirror";
                 remotesList.Size = Size.Empty;
             }
-            if (isOffline)
-            {
-                lblMirror.Text = " Offline Mode";
-                remotesList.Size = Size.Empty;
-            }
 
             splash.Close();
         }
@@ -296,8 +241,6 @@ namespace AndroidSideloader
                 progressBar.Invoke(() => { progressBar.Style = ProgressBarStyle.Marquee; });
 
                 progressBar.Style = ProgressBarStyle.Marquee;
-                if (!isOffline)
-                {
                     ChangeTitle("Initializing Servers...");
                     initMirrors(true);
                     if (Properties.Settings.Default.autoUpdateConfig)
@@ -313,7 +256,6 @@ namespace AndroidSideloader
                         ChangeTitle("Grabbing the Games List...");
                         SideloaderRCLONE.initGames(currentRemote);
                     }
-                }
                 else
                 {
                     ChangeTitle("Offline mode enabled, no Rclone");
@@ -322,12 +264,7 @@ namespace AndroidSideloader
             });
             t1.SetApartmentState(ApartmentState.STA);
             t1.IsBackground = true;
-
-            if (!isOffline)
-            {
-                t1.Start();
-            }
-
+            t1.Start();
             while (t1.IsAlive)
             {
                 await Task.Delay(100);
@@ -345,11 +282,7 @@ namespace AndroidSideloader
                 {
                     IsBackground = true
                 };
-                if (!isOffline)
-                {
-                    t2.Start();
-                }
-
+                t2.Start();
                 while (t2.IsAlive)
                 {
                     await Task.Delay(50);
@@ -471,19 +404,6 @@ namespace AndroidSideloader
         }
 
         public List<string> Devices = new List<string>();
-
-        public static void notify(string message)
-        {
-            if (Properties.Settings.Default.enableMessageBoxes == true)
-            {
-                _ = FlexibleMessageBox.Show(new Form
-                {
-                    TopMost = true,
-                    StartPosition = FormStartPosition.CenterScreen
-                }, message);
-            }
-        }
-
         private List<string> newGamesList = new List<string>();
         private List<string> newGamesToUploadList = new List<string>();
 
@@ -537,7 +457,7 @@ namespace AndroidSideloader
                     await Task.Delay(100);
                 }
             }
-            else if (!isOffline)
+            else
             {
                 SwitchMirrors();
                 initListPCVRView();
@@ -875,7 +795,7 @@ Things you can try:
                         bool isinstalltxt = false;
                         bool quotaError = false;
                         bool otherError = false;
-                        if (gameDownloadOutput.Error.Length > 0 && !isOffline)
+                        if (gameDownloadOutput.Error.Length > 0)
                         {
                             string err = gameDownloadOutput.Error.ToLower();
                             err += gameDownloadOutput.Output.ToLower();
@@ -1028,19 +948,6 @@ Things you can try:
 
         private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (searchTextBox.Visible)
-                {
-                    if (Properties.Settings.Default.EnterKeyInstall)
-                    {
-                        if (gamesListView.SelectedItems.Count > 0)
-                        {
-                            downloadInstallGameButton_Click(sender, e);
-                        }
-                    }
-                }
-            }
             if (e.KeyChar == (char)Keys.Escape)
             {
                 searchTextBox.Visible = false;
@@ -1143,20 +1050,6 @@ Things you can try:
             else
             {
                 _ = gamesListView.Focus();
-            }
-        }
-
-        private void gamesListView_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (Properties.Settings.Default.EnterKeyInstall)
-                {
-                    if (gamesListView.SelectedItems.Count > 0)
-                    {
-                        downloadInstallGameButton_Click(sender, e);
-                    }
-                }
             }
         }
 

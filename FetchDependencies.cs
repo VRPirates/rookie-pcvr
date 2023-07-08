@@ -93,14 +93,14 @@ namespace AndroidSideloader
             {
                 if (currentAccessedWebsite == "github")
                 {
-                    _ = FlexibleMessageBox.Show($"You are unable to access the raw.githubusercontent.com page with the Exception: {ex.Message}\nSome files may be missing (ADB, Offline Script, Launcher)");
-                    _ = FlexibleMessageBox.Show("These required files were unable to be downloaded\nRookie will now close, please use Offline Mode for manual sideloading if needed");
+                    _ = FlexibleMessageBox.Show($"You are unable to access the raw.githubusercontent.com page with the Exception: {ex.Message}");
+                    _ = FlexibleMessageBox.Show("These required files were unable to be downloaded\nRookie-PCVR will now close");
                     Application.Exit();
                 }
                 if (currentAccessedWebsite == "rclone")
                 {
                     _ = FlexibleMessageBox.Show($"You are unable to access the rclone page with the Exception: {ex.Message}\nSome files may be missing (RCLONE)");
-                    _ = FlexibleMessageBox.Show("Rclone was unable to be downloaded\nRookie will now close, please use Offline Mode for manual sideloading if needed");
+                    _ = FlexibleMessageBox.Show("Rclone was unable to be downloaded\nRookie-PCVR will now close");
                     Application.Exit();
                 }
             }

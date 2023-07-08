@@ -200,7 +200,6 @@ namespace AndroidSideloader
             this.gamesListView.View = System.Windows.Forms.View.Details;
             this.gamesListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
             this.gamesListView.SelectedIndexChanged += new System.EventHandler(this.gamesListView_SelectedIndexChanged);
-            this.gamesListView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gamesListView_KeyPress);
             this.gamesListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gamesListView_MouseDoubleClick);
             // 
             // GameNameIndex
@@ -309,6 +308,7 @@ namespace AndroidSideloader
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton_Tooltip.SetToolTip(this.settingsButton, "Rookie App Settings");
             this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // panel2
             // 
@@ -387,7 +387,7 @@ namespace AndroidSideloader
             this.remotesList.Font = global::AndroidSideloader.Properties.Settings.Default.FontStyle;
             this.remotesList.ForeColor = global::AndroidSideloader.Properties.Settings.Default.FontColor;
             this.remotesList.FormattingEnabled = true;
-            this.remotesList.Location = new System.Drawing.Point(6, 22);
+            this.remotesList.Location = new System.Drawing.Point(6, 23);
             this.remotesList.Margin = new System.Windows.Forms.Padding(2);
             this.remotesList.Name = "remotesList";
             this.remotesList.Size = new System.Drawing.Size(62, 26);
@@ -398,11 +398,11 @@ namespace AndroidSideloader
             // 
             this.lblMirror.AutoSize = true;
             this.lblMirror.BackColor = System.Drawing.Color.Transparent;
-            this.lblMirror.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblMirror.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.lblMirror.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblMirror.Location = new System.Drawing.Point(3, 3);
             this.lblMirror.Name = "lblMirror";
-            this.lblMirror.Size = new System.Drawing.Size(65, 17);
+            this.lblMirror.Size = new System.Drawing.Size(60, 18);
             this.lblMirror.TabIndex = 90;
             this.lblMirror.Text = "Mirror #";
             this.lblMirror.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -80,7 +80,6 @@ namespace AndroidSideloader
         {
             Properties.Settings.Default.Reset();
             Properties.Settings.Default.customDownloadDir = false;
-            Properties.Settings.Default.customBackupDir = false;
             MainForm.BackupFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"Rookie Backups");
             Properties.Settings.Default.downloadDir = Environment.CurrentDirectory.ToString();
             intSettings();
