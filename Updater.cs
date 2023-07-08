@@ -33,8 +33,8 @@ namespace RookiePCVR
         //Call this to ask the user if they want to update
         public static void Update()
         {
-            RawGitHubUrl = $"https://raw.githubusercontent.com/VRPirates/PCVR-Rookie";
-            GitHubUrl = $"https://github.com/nerdunit/VRPirates/PCVR-Rookie";
+            RawGitHubUrl = $"https://raw.githubusercontent.com/VRPirates/rookie-pcvr";
+            GitHubUrl = $"https://github.com/VRPirates/rookie-pcvr";
             if (IsUpdateAvailable())
             {
                 UpdateForm upForm = new UpdateForm();
