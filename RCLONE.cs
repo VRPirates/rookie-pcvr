@@ -134,6 +134,10 @@ namespace AndroidSideloader
                 {
                     return new ProcessOutput("All mirrors are on quota or down...", "All mirrors are on quota or down...");
                 }
+                if (oldRemote == string.Empty)
+                {
+                    oldRemote = "None";
+                }
                 prcoutput = runRcloneCommand_DownloadConfig(originalCommand.Replace(oldRemote, MainForm.currentRemote));
             }
             else

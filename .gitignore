@@ -8,3 +8,4 @@
 /bin/Debug
 *.xsd
 *.xml
+/bin/Release

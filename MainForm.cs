@@ -327,8 +327,6 @@ namespace AndroidSideloader
             {
                 if (mirror.Contains("mirror"))
                 {
-
-
                     _ = Logger.Log(mirror.Remove(mirror.Length - 1));
                     remotesList.Invoke(() => { _ = remotesList.Items.Add(mirror.Remove(mirror.Length - 1).Replace("VRP-mirror", "")); });
                     itemsCount++;
@@ -511,23 +509,8 @@ namespace AndroidSideloader
                     if (quotaTries > remotesList.Items.Count)
                     {
                         ShowError_QuotaExceeded();
-
-                        DialogResult om = MessageBox.Show("Relaunch Rookie in Offline Mode?", "Offline Mode?", MessageBoxButtons.YesNo);
-                        if (om == DialogResult.Yes)
-                        {
-                            Process pr = new Process();
-                            pr.StartInfo.WorkingDirectory = Application.StartupPath;
-                            pr.StartInfo.FileName = System.AppDomain.CurrentDomain.FriendlyName;
-                            pr.StartInfo.Arguments = "--offline";
-                            _ = pr.Start();
-                            Process.GetCurrentProcess().Kill();
-                        }
-
-                        if (System.Windows.Forms.Application.MessageLoop)
-                        {
-                            Process.GetCurrentProcess().Kill();
-                        }
-
+                        RCLONE.killRclone();
+                        Application.Exit();
                     }
                     if (remotesList.SelectedIndex + 1 == remotesList.Items.Count)
                     {
@@ -553,15 +536,16 @@ namespace AndroidSideloader
 
         private static void ShowError_QuotaExceeded()
         {
-            const string errorMessage =
-@"Unable to connect to Remote Server. Rookie is unable to connect to our Servers.
+            string errorMessage =
+$@"Unable to connect to Remote Server. Rookie is unable to connect to our Servers.
 
 First time launching Rookie? Please relaunch and try again.
 
 Things you can try:
-1) Use a third party config from the wiki (https://wiki.vrpirates.club/general_information/third-party-rclone-configs)
-2) Use Resilio for p2p downloads (https://wiki.vrpirates.club/en/Howto/Resilio-Sync-setup-guide)
-3) Sponsor a private server (https://wiki.vrpirates.club/en/Howto/sponsored-mirrors)
+1) Move the Rookie directory (Folder containing AndroidSideloader.exe) into {Path.GetPathRoot(Environment.SystemDirectory)}RSL
+2) Try changing your systems DNS to either Cloudflare/Google/OpenDNS
+3) Try using a systemwide VPN like ProtonVPN
+4) Sponsor a private server (https://wiki.vrpirates.club/en/Howto/sponsored-mirrors)
 ";
 
             _ = FlexibleMessageBox.Show(Program.form, errorMessage, "Unable to connect to Remote Server");
