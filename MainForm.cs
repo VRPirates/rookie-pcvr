@@ -833,10 +833,10 @@ Things you can try:
                         if (quotaError == false && otherError == false)
                         {
                             ChangeTitle($"Installation of {gameName} completed.");
+                            //Remove current game
+                            cleanupActiveDownloadStatus();
                         }
-                        //Remove current game
-                        cleanupActiveDownloadStatus();
-                        }
+                    }
                     }
                 }
                 if (removedownloading)
