@@ -505,6 +505,7 @@ namespace RookiePCVR
                         ShowError_QuotaExceeded();
                         RCLONE.killRclone();
                         Application.Exit();
+                        return;
                     }
                     if (remotesList.SelectedIndex + 1 == remotesList.Items.Count)
                     {
