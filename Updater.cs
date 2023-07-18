@@ -11,7 +11,7 @@ namespace RookiePCVR
         private static string RawGitHubUrl;
         private static string GitHubUrl;
 
-        public static readonly string LocalVersion = "1.0";
+        public static readonly string LocalVersion = "1.1";
         public static string currentVersion = string.Empty;
         public static string changelog = string.Empty;
 
@@ -38,7 +38,7 @@ namespace RookiePCVR
             if (IsUpdateAvailable())
             {
                 UpdateForm upForm = new UpdateForm();
-                _ = upForm.ShowDialog(); ;
+                _ = upForm.ShowDialog();
             }
         }
 
