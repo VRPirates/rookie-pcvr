@@ -21,8 +21,8 @@ namespace RookiePCVR
             HttpClient client = new HttpClient();
             try
             {
-                currentVersion = client.GetStringAsync($"{RawGitHubUrl}/master/version").Result;
-                changelog = client.GetStringAsync($"{RawGitHubUrl}/master/changelog.txt").Result;
+                currentVersion = client.GetStringAsync($"{RawGitHubUrl}/main/version").Result;
+                changelog = client.GetStringAsync($"{RawGitHubUrl}/main/changelog.txt").Result;
                 client.Dispose();
                 currentVersion = currentVersion.Trim();
             }
