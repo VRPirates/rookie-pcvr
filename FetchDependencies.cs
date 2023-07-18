@@ -28,18 +28,6 @@ namespace RookiePCVR
             var currentAccessedWebsite = "";
             try
             {
-                if (!File.Exists("Sideloader Launcher.exe"))
-                {
-                    currentAccessedWebsite = "github";
-                    client.DownloadFile("https://github.com/nerdunit/androidsideloader/raw/master/Sideloader%20Launcher.exe", "Sideloader Launcher.exe");
-                }
-
-                if (!File.Exists("Rookie Offline.cmd"))
-                {
-                    currentAccessedWebsite = "github";
-                    client.DownloadFile("https://github.com/nerdunit/androidsideloader/raw/master/Rookie%20Offline.cmd", "Rookie Offline.cmd");
-                }
-
                 if (!Directory.Exists(Environment.CurrentDirectory + "\\rclone"))
                 {
                     currentAccessedWebsite = "rclone";

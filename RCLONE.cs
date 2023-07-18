@@ -33,7 +33,7 @@ namespace RookiePCVR
                 }
                 catch (Exception ex)
                 {
-                    // Handle exception if the process no longer exists
+                    _ = Logger.Log($"Exception occured while attempting to shut down RCLONE with exception message: {ex.Message}", LogLevel.ERROR);
                 }
             }
         }

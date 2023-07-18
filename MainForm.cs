@@ -505,6 +505,7 @@ namespace RookiePCVR
                         ShowError_QuotaExceeded();
                         RCLONE.killRclone();
                         Application.Exit();
+                        return;
                     }
                     if (remotesList.SelectedIndex + 1 == remotesList.Items.Count)
                     {
@@ -799,44 +800,48 @@ Things you can try:
 
                         if (hasPublicPCVRConfig && otherError == false && gameDownloadOutput.Output != "Download skipped.")
                         {
-                            try
+                            Thread extractionThread = new Thread(() =>
                             {
-                                Thread extractionThread = new Thread(() =>
+                                try
                                 {
                                     ChangeTitle("Extracting " + gameName, false);
                                     Zip.ExtractFile($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\\{gameNameHash}.7z.001", $"{Properties.Settings.Default.downloadDir}", PublicConfigFile.Password);
                                     Program.form.ChangeTitle("");
-                                })
-                                {
-                                    IsBackground = true
-                                };
-                                extractionThread.Start();
-
-                                while (extractionThread.IsAlive)
-                                {
-                                    await Task.Delay(100);
                                 }
-
-                                if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))
+                                catch (Exception ex)
                                 {
-                                    Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}", true);
+                                    Invoke(new Action(() =>
+                                    {
+                                        cleanupActiveDownloadStatus();
+                                    }));
+                                    otherError = true;
+                                    _ = FlexibleMessageBox.Show($"7zip error: {ex.Message}");
+                                    output += new ProcessOutput("", "Extract Failed");
                                 }
-                            }
-                            catch (Exception ex)
+                            })
                             {
-                                otherError = true;
-                                _ = FlexibleMessageBox.Show($"7zip error: {ex.Message}");
-                                output += new ProcessOutput("", "Extract Failed");
+                                IsBackground = true
+                            };
+                            extractionThread.Start();
+
+                            while (extractionThread.IsAlive)
+                            {
+                                await Task.Delay(100);
                             }
-                        }
+
+                            if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))
+                            {
+                                Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}", true);
+                            }
+                        } 
 
                         if (quotaError == false && otherError == false)
                         {
                             ChangeTitle($"Installation of {gameName} completed.");
+                            //Remove current game
+                            cleanupActiveDownloadStatus();
                         }
-                        //Remove current game
-                        cleanupActiveDownloadStatus();
-                        }
+                    }
                     }
                 }
                 if (removedownloading)
