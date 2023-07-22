@@ -999,7 +999,7 @@ Things you can try:
 
         private void freeDisclaimer_Click(object sender, EventArgs e)
         {
-            _ = Process.Start("https://github.com/Chax1/PCVR-Rookie");
+            _ = Process.Start("https://github.com/VRPirates/rookie-pcvr");
         }
  
         private void searchTextBox_Leave(object sender, EventArgs e)
