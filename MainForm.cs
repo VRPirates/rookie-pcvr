@@ -546,7 +546,7 @@ Things you can try:
             _ = FlexibleMessageBox.Show(Program.form, errorMessage, "Unable to connect to Remote Server");
         }
 
-        public async void cleanupActiveDownloadStatus()
+        public void cleanupActiveDownloadStatus()
         {
             speedLabel.Text = "";
             etaLabel.Text = "";
@@ -771,7 +771,6 @@ Things you can try:
                     }
                     {
                         //Quota Errors
-                        bool isinstalltxt = false;
                         bool quotaError = false;
                         bool otherError = false;
                         if (gameDownloadOutput.Error.Length > 0)
@@ -829,6 +828,43 @@ Things you can try:
                                 await Task.Delay(100);
                             }
 
+                            string[] partFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.001");
+                            string[] sevenZipFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.7z");
+                            string[] zipFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.zip");
+
+                            bool extracted = false; // Flag to track if any zip file has been extracted
+
+                            if (partFiles != null && partFiles.Length > 0)
+                            {
+                                // Extract the first part file
+                                Zip.ExtractFile(partFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
+                                extracted = true;
+                            }
+                            else if (sevenZipFiles != null && sevenZipFiles.Length > 0)
+                            {
+                                // If there are no part files, extract the 7z file
+                                Zip.ExtractFile(sevenZipFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
+                                File.Delete(sevenZipFiles.First());
+                                extracted = true;
+                            }
+                            else if (zipFiles != null && zipFiles.Length > 0)
+                            {
+                                // If there are no part or 7z files, extract the zip file
+                                Zip.ExtractFile(zipFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
+                                File.Delete(zipFiles.First());
+                                extracted = true;
+                            }
+
+                            if (extracted)
+                            {
+                                string[] exeFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.exe");
+                                // Run the executable if it exists
+                                if (exeFiles != null && exeFiles.Length > 0)
+                                {
+                                    Process.Start(exeFiles.First());
+                                }
+                            }
+
                             if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))
                             {
                                 Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}", true);
@@ -862,7 +898,7 @@ Things you can try:
         }
         
 
-        private async void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isinstalling)
             {
@@ -978,7 +1014,7 @@ Things you can try:
             }
         }
 
-        public async void gamesListView_SelectedIndexChanged(object sender, EventArgs e)
+        public void gamesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (gamesListView.SelectedItems.Count < 1)
             {
