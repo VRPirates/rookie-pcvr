@@ -228,7 +228,7 @@ namespace RookiePCVR
                 if (!debugMode && Properties.Settings.Default.checkForUpdates)
                 {
                     Updater.AppName = "PCVR-Rookie";
-                    Updater.Repostory = "VRPirates/PCVR-Rookie";
+                    Updater.Repostory = "VRPirates/rookie-pcvr";
                     Updater.Update();
                 }
                 progressBar.Invoke(() => { progressBar.Style = ProgressBarStyle.Marquee; });
