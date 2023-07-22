@@ -834,34 +834,45 @@ Things you can try:
 
                             bool extracted = false; // Flag to track if any zip file has been extracted
 
-                            if (partFiles != null && partFiles.Length > 0)
+                            if (Properties.Settings.Default.autoExtract)
                             {
-                                // Extract the first part file
-                                Zip.ExtractFile(partFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
-                                extracted = true;
-                            }
-                            else if (sevenZipFiles != null && sevenZipFiles.Length > 0)
-                            {
-                                // If there are no part files, extract the 7z file
-                                Zip.ExtractFile(sevenZipFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
-                                File.Delete(sevenZipFiles.First());
-                                extracted = true;
-                            }
-                            else if (zipFiles != null && zipFiles.Length > 0)
-                            {
-                                // If there are no part or 7z files, extract the zip file
-                                Zip.ExtractFile(zipFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
-                                File.Delete(zipFiles.First());
-                                extracted = true;
-                            }
-
-                            if (extracted)
-                            {
-                                string[] exeFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.exe");
-                                // Run the executable if it exists
-                                if (exeFiles != null && exeFiles.Length > 0)
+                                if (partFiles != null && partFiles.Length > 0)
                                 {
-                                    Process.Start(exeFiles.First());
+                                    // Extract the first part file
+                                    Zip.ExtractFile(partFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
+                                    extracted = true;
+                                    string[] allPartFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.7z.*");
+                                    foreach (string part in allPartFiles)
+                                    {
+                                        File.Delete(part);
+                                    }
+                                }
+                                else if (sevenZipFiles != null && sevenZipFiles.Length > 0)
+                                {
+                                    // If there are no part files, extract the 7z file
+                                    Zip.ExtractFile(sevenZipFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
+                                    File.Delete(sevenZipFiles.First());
+                                    extracted = true;
+                                }
+                                else if (zipFiles != null && zipFiles.Length > 0)
+                                {
+                                    // If there are no part or 7z files, extract the zip file
+                                    Zip.ExtractFile(zipFiles.First(), $"{Properties.Settings.Default.downloadDir}\\{gameName}");
+                                    File.Delete(zipFiles.First());
+                                    extracted = true;
+                                }
+
+                                if (Properties.Settings.Default.autoRunSetup)
+                                {
+                                    if (extracted)
+                                    {
+                                        string[] exeFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.exe");
+                                        // Run the executable if it exists
+                                        if (exeFiles != null && exeFiles.Length > 0)
+                                        {
+                                            Process.Start(exeFiles.First());
+                                        }
+                                    }
                                 }
                             }
 

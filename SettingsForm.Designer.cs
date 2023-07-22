@@ -42,6 +42,8 @@ namespace RookiePCVR
             this.resetSettingsButton = new RookiePCVR.RoundButton();
             this.applyButton = new RookiePCVR.RoundButton();
             this.virtualFilesystemCompatibilityCheckbox = new System.Windows.Forms.CheckBox();
+            this.autoExtractCheckbox = new System.Windows.Forms.CheckBox();
+            this.runSetupCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkForUpdatesCheckBox
@@ -113,7 +115,7 @@ namespace RookiePCVR
             this.setDownloadDirectory.ForeColor = System.Drawing.Color.White;
             this.setDownloadDirectory.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.setDownloadDirectory.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.setDownloadDirectory.Location = new System.Drawing.Point(27, 323);
+            this.setDownloadDirectory.Location = new System.Drawing.Point(27, 385);
             this.setDownloadDirectory.Name = "setDownloadDirectory";
             this.setDownloadDirectory.Radius = 5;
             this.setDownloadDirectory.Size = new System.Drawing.Size(285, 31);
@@ -134,7 +136,7 @@ namespace RookiePCVR
             this.btnOpenDebug.ForeColor = System.Drawing.Color.White;
             this.btnOpenDebug.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.btnOpenDebug.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.btnOpenDebug.Location = new System.Drawing.Point(27, 194);
+            this.btnOpenDebug.Location = new System.Drawing.Point(27, 256);
             this.btnOpenDebug.Name = "btnOpenDebug";
             this.btnOpenDebug.Radius = 5;
             this.btnOpenDebug.Size = new System.Drawing.Size(285, 31);
@@ -155,7 +157,7 @@ namespace RookiePCVR
             this.btnResetDebug.ForeColor = System.Drawing.Color.White;
             this.btnResetDebug.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.btnResetDebug.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.btnResetDebug.Location = new System.Drawing.Point(27, 231);
+            this.btnResetDebug.Location = new System.Drawing.Point(27, 293);
             this.btnResetDebug.Name = "btnResetDebug";
             this.btnResetDebug.Radius = 5;
             this.btnResetDebug.Size = new System.Drawing.Size(285, 31);
@@ -176,7 +178,7 @@ namespace RookiePCVR
             this.btnUploadDebug.ForeColor = System.Drawing.Color.White;
             this.btnUploadDebug.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.btnUploadDebug.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.btnUploadDebug.Location = new System.Drawing.Point(27, 268);
+            this.btnUploadDebug.Location = new System.Drawing.Point(27, 330);
             this.btnUploadDebug.Name = "btnUploadDebug";
             this.btnUploadDebug.Radius = 5;
             this.btnUploadDebug.Size = new System.Drawing.Size(285, 31);
@@ -197,7 +199,7 @@ namespace RookiePCVR
             this.resetSettingsButton.ForeColor = System.Drawing.Color.White;
             this.resetSettingsButton.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.resetSettingsButton.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.resetSettingsButton.Location = new System.Drawing.Point(179, 137);
+            this.resetSettingsButton.Location = new System.Drawing.Point(179, 199);
             this.resetSettingsButton.Name = "resetSettingsButton";
             this.resetSettingsButton.Radius = 5;
             this.resetSettingsButton.Size = new System.Drawing.Size(133, 31);
@@ -218,7 +220,7 @@ namespace RookiePCVR
             this.applyButton.ForeColor = System.Drawing.Color.White;
             this.applyButton.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.applyButton.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.applyButton.Location = new System.Drawing.Point(27, 137);
+            this.applyButton.Location = new System.Drawing.Point(27, 199);
             this.applyButton.Name = "applyButton";
             this.applyButton.Radius = 5;
             this.applyButton.Size = new System.Drawing.Size(133, 31);
@@ -242,12 +244,43 @@ namespace RookiePCVR
             this.virtualFilesystemCompatibilityCheckbox.Text = "Enable Virtual Filesystem Compatibility";
             this.virtualFilesystemCompatibilityCheckbox.UseVisualStyleBackColor = false;
             // 
+            // autoExtractCheckbox
+            // 
+            this.autoExtractCheckbox.AutoSize = true;
+            this.autoExtractCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.autoExtractCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.autoExtractCheckbox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.autoExtractCheckbox.Location = new System.Drawing.Point(11, 124);
+            this.autoExtractCheckbox.Name = "autoExtractCheckbox";
+            this.autoExtractCheckbox.Size = new System.Drawing.Size(206, 22);
+            this.autoExtractCheckbox.TabIndex = 27;
+            this.autoExtractCheckbox.Text = "Auto extract after download";
+            this.autoExtractCheckbox.UseVisualStyleBackColor = false;
+            this.autoExtractCheckbox.CheckedChanged += new System.EventHandler(this.autoExtractCheckbox_CheckedChanged);
+            // 
+            // runSetupCheckbox
+            // 
+            this.runSetupCheckbox.AutoSize = true;
+            this.runSetupCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.runSetupCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.runSetupCheckbox.Enabled = false;
+            this.runSetupCheckbox.Font = global::RookiePCVR.Properties.Settings.Default.FontStyle;
+            this.runSetupCheckbox.Location = new System.Drawing.Point(11, 152);
+            this.runSetupCheckbox.Name = "runSetupCheckbox";
+            this.runSetupCheckbox.Size = new System.Drawing.Size(208, 22);
+            this.runSetupCheckbox.TabIndex = 28;
+            this.runSetupCheckbox.Text = "Run setup after auto extract";
+            this.runSetupCheckbox.UseVisualStyleBackColor = false;
+            this.runSetupCheckbox.CheckedChanged += new System.EventHandler(this.runSetupCheckbox_CheckedChanged);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::RookiePCVR.Properties.Settings.Default.BackColor;
-            this.ClientSize = new System.Drawing.Size(339, 374);
+            this.ClientSize = new System.Drawing.Size(339, 439);
+            this.Controls.Add(this.runSetupCheckbox);
+            this.Controls.Add(this.autoExtractCheckbox);
             this.Controls.Add(this.virtualFilesystemCompatibilityCheckbox);
             this.Controls.Add(this.singleThread);
             this.Controls.Add(this.setDownloadDirectory);
@@ -290,5 +323,7 @@ namespace RookiePCVR
         private System.Windows.Forms.FolderBrowserDialog backupDirectorySetter;
         private System.Windows.Forms.CheckBox singleThread;
         private System.Windows.Forms.CheckBox virtualFilesystemCompatibilityCheckbox;
+        private System.Windows.Forms.CheckBox autoExtractCheckbox;
+        private System.Windows.Forms.CheckBox runSetupCheckbox;
     }
 }
