@@ -689,7 +689,7 @@ Things you can try:
                     t1.Start();
 
                     ChangeTitle("Downloading game " + gameName, false);
-
+                    speedLabel.Text = "Starting download..."; etaLabel.Text = "Please wait...";
                     int i = 0;
                     //Download
                     while (t1.IsAlive)
