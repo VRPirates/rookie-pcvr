@@ -804,6 +804,10 @@ Things you can try:
                             {
                                 try
                                 {
+                                    Invoke(new Action(() =>
+                                    {
+                                        speedLabel.Text = "Extracting..."; etaLabel.Text = "Please wait...";
+                                    }));
                                     ChangeTitle("Extracting " + gameName, false);
                                     Zip.ExtractFile($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\\{gameNameHash}.7z.001", $"{Properties.Settings.Default.downloadDir}", PublicConfigFile.Password);
                                     Program.form.ChangeTitle("");
