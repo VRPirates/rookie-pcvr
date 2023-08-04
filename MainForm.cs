@@ -227,7 +227,7 @@ namespace RookiePCVR
             {
                 if (!debugMode && Properties.Settings.Default.checkForUpdates)
                 {
-                    Updater.AppName = "PCVR-Rookie";
+                    Updater.AppName = "Rookie-PCVR";
                     Updater.Repostory = "VRPirates/rookie-pcvr";
                     Updater.Update();
                 }
