@@ -69,11 +69,11 @@ namespace RookiePCVR
             this.etaLabel_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.EnterInstallBox_Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
             this.remotesList = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMirror = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.downloadInstallGameButton = new RookiePCVR.RoundButton();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -292,6 +292,32 @@ namespace RookiePCVR
             this.panel2.Size = new System.Drawing.Size(760, 34);
             this.panel2.TabIndex = 96;
             // 
+            // downloadInstallGameButton
+            // 
+            this.downloadInstallGameButton.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.downloadInstallGameButton.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.downloadInstallGameButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.downloadInstallGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "SubButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.downloadInstallGameButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.downloadInstallGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.downloadInstallGameButton.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
+            this.downloadInstallGameButton.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.downloadInstallGameButton.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.downloadInstallGameButton.Location = new System.Drawing.Point(393, 0);
+            this.downloadInstallGameButton.Margin = new System.Windows.Forms.Padding(0);
+            this.downloadInstallGameButton.Name = "downloadInstallGameButton";
+            this.downloadInstallGameButton.Radius = 5;
+            this.downloadInstallGameButton.Size = new System.Drawing.Size(367, 34);
+            this.downloadInstallGameButton.Stroke = true;
+            this.downloadInstallGameButton.StrokeColor = System.Drawing.Color.White;
+            this.downloadInstallGameButton.TabIndex = 94;
+            this.downloadInstallGameButton.Text = "Download Game/Add To Queue ⮩ ";
+            this.downloadInstallGameButton.Transparency = false;
+            this.downloadInstallGameButton.Click += new System.EventHandler(this.downloadInstallGameButton_Click);
+            // 
             // remotesList
             // 
             this.remotesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
@@ -335,32 +361,6 @@ namespace RookiePCVR
             this.lblMirror.TabIndex = 90;
             this.lblMirror.Text = "Mirror #";
             this.lblMirror.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // downloadInstallGameButton
-            // 
-            this.downloadInstallGameButton.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.downloadInstallGameButton.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.downloadInstallGameButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadInstallGameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::RookiePCVR.Properties.Settings.Default, "SubButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::RookiePCVR.Properties.Settings.Default, "FontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.downloadInstallGameButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::RookiePCVR.Properties.Settings.Default, "FontStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.downloadInstallGameButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.downloadInstallGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.downloadInstallGameButton.ForeColor = global::RookiePCVR.Properties.Settings.Default.FontColor;
-            this.downloadInstallGameButton.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.downloadInstallGameButton.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.downloadInstallGameButton.Location = new System.Drawing.Point(393, 0);
-            this.downloadInstallGameButton.Margin = new System.Windows.Forms.Padding(0);
-            this.downloadInstallGameButton.Name = "downloadInstallGameButton";
-            this.downloadInstallGameButton.Radius = 5;
-            this.downloadInstallGameButton.Size = new System.Drawing.Size(367, 34);
-            this.downloadInstallGameButton.Stroke = true;
-            this.downloadInstallGameButton.StrokeColor = System.Drawing.Color.White;
-            this.downloadInstallGameButton.TabIndex = 94;
-            this.downloadInstallGameButton.Text = "Download Game/Add To Queue ⮩ ";
-            this.downloadInstallGameButton.Transparency = false;
-            this.downloadInstallGameButton.Click += new System.EventHandler(this.downloadInstallGameButton_Click);
             // 
             // MainForm
             // 
