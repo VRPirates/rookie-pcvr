@@ -1,1 +1,6 @@
-﻿
+﻿Rookie-PCVR v1.1
+- Initial Release
+
+
+Rookie-PCVR v1.0
+- Beta

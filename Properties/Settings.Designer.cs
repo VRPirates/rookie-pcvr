@@ -370,5 +370,29 @@ namespace RookiePCVR.Properties {
                 this["virtualFilesystemCompatibility"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autoExtract {
+            get {
+                return ((bool)(this["autoExtract"]));
+            }
+            set {
+                this["autoExtract"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autoRunSetup {
+            get {
+                return ((bool)(this["autoRunSetup"]));
+            }
+            set {
+                this["autoRunSetup"] = value;
+            }
+        }
     }
 }

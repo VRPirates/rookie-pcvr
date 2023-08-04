@@ -1,5 +1,6 @@
 ﻿using JR.Utils.GUI.Forms;
 using System;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -27,6 +28,9 @@ namespace RookiePCVR
             updateConfigCheckBox.Checked = Properties.Settings.Default.autoUpdateConfig;
             singleThread.Checked = Properties.Settings.Default.singleThreadMode;
             virtualFilesystemCompatibilityCheckbox.Checked = Properties.Settings.Default.virtualFilesystemCompatibility;
+            autoExtractCheckbox.Checked = Properties.Settings.Default.autoExtract;
+            runSetupCheckbox.Checked = Properties.Settings.Default.autoRunSetup;
+            runSetupCheckbox.Enabled = Properties.Settings.Default.autoExtract;
         }
 
         private void intToolTips()
@@ -149,6 +153,28 @@ namespace RookiePCVR
         private void virtualFilesystemCompatibilityCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.virtualFilesystemCompatibility = virtualFilesystemCompatibilityCheckbox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void autoExtractCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.autoExtract = autoExtractCheckbox.Checked;
+            Properties.Settings.Default.Save();
+            if (autoExtractCheckbox.Checked)
+            {
+                runSetupCheckbox.Enabled = true;
+            }
+            else
+            {
+                runSetupCheckbox.Enabled = false;
+                runSetupCheckbox.Checked = false;
+                Properties.Settings.Default.autoRunSetup = false;
+            }
+        }
+
+        private void runSetupCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.autoRunSetup = runSetupCheckbox.Checked;
             Properties.Settings.Default.Save();
         }
     }
