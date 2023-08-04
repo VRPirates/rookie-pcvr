@@ -689,7 +689,7 @@ Things you can try:
                     t1.Start();
 
                     ChangeTitle("Downloading game " + gameName, false);
-
+                    speedLabel.Text = "Starting download..."; etaLabel.Text = "Please wait...";
                     int i = 0;
                     //Download
                     while (t1.IsAlive)
@@ -804,6 +804,10 @@ Things you can try:
                             {
                                 try
                                 {
+                                    Invoke(new Action(() =>
+                                    {
+                                        speedLabel.Text = "Extracting..."; etaLabel.Text = "Please wait...";
+                                    }));
                                     ChangeTitle("Extracting " + gameName, false);
                                     Zip.ExtractFile($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\\{gameNameHash}.7z.001", $"{Properties.Settings.Default.downloadDir}", PublicConfigFile.Password);
                                     Program.form.ChangeTitle("");
