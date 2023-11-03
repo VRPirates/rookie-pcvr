@@ -132,7 +132,7 @@ namespace RookiePCVR
 
                     if (!hasPublicPCVRConfig)
                     {
-                        _ = FlexibleMessageBox.Show(Program.form, "Failed to fetch public mirror config, and the current one is unreadable.\r\nPlease ensure you can access https://wiki.vrpirates.club/ in your browser.", "Config Update Failed", MessageBoxButtons.OK);
+                        _ = FlexibleMessageBox.Show(Program.form, "Failed to fetch public mirror config, and the current one is unreadable.\r\nPlease ensure you can access https://vrpirates.wiki/ in your browser.", "Config Update Failed", MessageBoxButtons.OK);
                     }
 
                     if (Directory.Exists(@"C:\RSL\EBWebView"))
@@ -540,7 +540,7 @@ Things you can try:
 1) Move the Rookie-PCVR directory (Folder containing Rookie-PCVR.exe) into {Path.GetPathRoot(Environment.SystemDirectory)}RSL
 2) Try changing your systems DNS to either Cloudflare/Google/OpenDNS
 3) Try using a systemwide VPN like ProtonVPN
-4) Sponsor a private server (https://wiki.vrpirates.club/en/Howto/sponsored-mirrors)
+4) Sponsor a private server (https://vrpirates.wiki/en/Howto/sponsored-mirrors)
 ";
 
             _ = FlexibleMessageBox.Show(Program.form, errorMessage, "Unable to connect to Remote Server");
