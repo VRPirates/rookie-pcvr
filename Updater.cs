@@ -11,7 +11,7 @@ namespace RookiePCVR
         private static string RawGitHubUrl;
         private static string GitHubUrl;
 
-        public static readonly string LocalVersion = "1.2";
+        public static readonly string LocalVersion = "1.3";
         public static string currentVersion = string.Empty;
         public static string changelog = string.Empty;
 

@@ -1,9 +1,3 @@
-Rookie-PCVR 1.2 
+Rookie-PCVR 1.3
 
-- Feature: Add auto-extraction (settings)
-- Feature: Add auto run setup (settings)
-- Fix: Adjust the free disclaimer link to point to the proper repository
-- Fix: Fix updater repo
-- Fix: Fix sorting by filesize
-- QoL: Add starting download text
-- QoL: Add extracting please wait text
+- Chore: Update Wiki URL
