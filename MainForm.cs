@@ -865,19 +865,6 @@ Things you can try:
                                     File.Delete(zipFiles.First());
                                     extracted = true;
                                 }
-
-                                if (Properties.Settings.Default.autoRunSetup)
-                                {
-                                    if (extracted)
-                                    {
-                                        string[] exeFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.exe");
-                                        // Run the executable if it exists
-                                        if (exeFiles != null && exeFiles.Length > 0)
-                                        {
-                                            Process.Start(exeFiles.First());
-                                        }
-                                    }
-                                }
                             }
 
                             if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))

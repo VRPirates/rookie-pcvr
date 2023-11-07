@@ -90,10 +90,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="autoExtract" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="autoRunSetup" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
