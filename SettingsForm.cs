@@ -29,8 +29,6 @@ namespace RookiePCVR
             singleThread.Checked = Properties.Settings.Default.singleThreadMode;
             virtualFilesystemCompatibilityCheckbox.Checked = Properties.Settings.Default.virtualFilesystemCompatibility;
             autoExtractCheckbox.Checked = Properties.Settings.Default.autoExtract;
-            runSetupCheckbox.Checked = Properties.Settings.Default.autoRunSetup;
-            runSetupCheckbox.Enabled = Properties.Settings.Default.autoExtract;
         }
 
         private void intToolTips()
@@ -72,7 +70,7 @@ namespace RookiePCVR
         private void applyButton_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Save();
-            _ = FlexibleMessageBox.Show(this, "Settings applied!");
+            this.Close();
         }
 
         private void checkForUpdatesCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -159,22 +157,6 @@ namespace RookiePCVR
         private void autoExtractCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.autoExtract = autoExtractCheckbox.Checked;
-            Properties.Settings.Default.Save();
-            if (autoExtractCheckbox.Checked)
-            {
-                runSetupCheckbox.Enabled = true;
-            }
-            else
-            {
-                runSetupCheckbox.Enabled = false;
-                runSetupCheckbox.Checked = false;
-                Properties.Settings.Default.autoRunSetup = false;
-            }
-        }
-
-        private void runSetupCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.autoRunSetup = runSetupCheckbox.Checked;
             Properties.Settings.Default.Save();
         }
     }
