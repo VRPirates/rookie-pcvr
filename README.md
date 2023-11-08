@@ -8,5 +8,5 @@ rookie-pcvr uses the GPL license, any forks of it must have their source code ma
 
 
 ### This app might get detected as malware, however the downloader is open source and is not a virus.
-Rookie-PCVR 1.4 VirusTotal Scan (6/72)-
-https://www.virustotal.com/gui/file/32df4f6570c5fc4431b39137a75b771ae657de3f3cb3e274c2dc3cb47f9a4d2d
+Rookie-PCVR 1.4 VirusTotal Scan-
+https://www.virustotal.com/gui/file/165358911d2ee32c18c1a76c182853672a6447d6bc1f0ee1585a319f8c6d3cb7
