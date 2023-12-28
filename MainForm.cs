@@ -410,6 +410,7 @@ namespace RookiePCVR
         public static int updint = 0;
         public static bool nodeviceonstart = false;
         public static bool either = false;
+        private bool _allItemsInitialized = false;
 
         private async void initListPCVRView()
         {
@@ -461,6 +462,11 @@ namespace RookiePCVR
             gamesListView.Items.Clear();
             gamesListView.Items.AddRange(arr);
             gamesListView.EndUpdate();
+            if (!_allItemsInitialized)
+            {
+                _allItems = gamesListView.Items.Cast<ListViewItem>().ToList();
+                _allItemsInitialized = true; // Set the flag to true after initialization
+            }
             ChangeTitle("                                                \n\n");
             loaded = true;
         }
@@ -980,29 +986,26 @@ Things you can try:
             // Cancel any ongoing searches
             _cts?.Cancel();
 
-            _allItems = gamesListView.Items.Cast<ListViewItem>().ToList();
-
             string searchTerm = searchTextBox.Text;
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 _cts = new CancellationTokenSource();
+
                 try
                 {
-                    var matches = await Task.Run(() =>
-                        _allItems
-                            .Where(i => i.Text.IndexOf(searchTerm, StringComparison.CurrentCultureIgnoreCase) >= 0)
-                            .ToList(),
-                        _cts.Token);
+                    var matches = _allItems
+                        .Where(i => i.Text.IndexOf(searchTerm, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                        .ToList();
 
-                    // Update UI on UI thread
-                    Invoke(new Action(() =>
+                    gamesListView.BeginUpdate(); // Improve UI performance
+                    gamesListView.Items.Clear();
+
+                    foreach (var match in matches)
                     {
-                        gamesListView.Items.Clear();
-                        foreach (var match in matches)
-                        {
-                            gamesListView.Items.Add(match);
-                        }
-                    }));
+                        gamesListView.Items.Add(match);
+                    }
+
+                    gamesListView.EndUpdate(); // End the update to refresh the UI
                 }
                 catch (OperationCanceledException)
                 {
@@ -1011,7 +1014,6 @@ Things you can try:
             }
             else
             {
-                // No matching items found, restore the original list
                 initListPCVRView();
             }
         }
