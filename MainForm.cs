@@ -805,14 +805,11 @@ Things you can try:
 
                         if (hasPublicPCVRConfig && otherError == false && gameDownloadOutput.Output != "Download skipped.")
                         {
+                            speedLabel.Text = "Extracting..."; etaLabel.Text = "Please wait...";
                             Thread extractionThread = new Thread(() =>
                             {
                                 try
                                 {
-                                    Invoke(new Action(() =>
-                                    {
-                                        speedLabel.Text = "Extracting..."; etaLabel.Text = "Please wait...";
-                                    }));
                                     ChangeTitle("Extracting " + gameName, false);
                                     Zip.ExtractFile($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\\{gameNameHash}.7z.001", $"{Properties.Settings.Default.downloadDir}", PublicConfigFile.Password);
                                     Program.form.ChangeTitle("");
@@ -838,14 +835,12 @@ Things you can try:
                                 await Task.Delay(100);
                             }
 
-                            string[] partFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.001");
-                            string[] sevenZipFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.7z");
-                            string[] zipFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.zip");
-
-                            bool extracted = false; // Flag to track if any zip file has been extracted
-
-                            if (Properties.Settings.Default.autoExtract)
+                            bool extracted; // Flag to track if any zip file has been extracted
+                            if (!otherError && Properties.Settings.Default.autoExtract)
                             {
+                                string[] partFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.001");
+                                string[] sevenZipFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.7z");
+                                string[] zipFiles = Directory.GetFiles($"{Properties.Settings.Default.downloadDir}\\{gameName}", "*.zip");
                                 if (partFiles != null && partFiles.Length > 0)
                                 {
                                     // Extract the first part file
@@ -871,6 +866,7 @@ Things you can try:
                                     File.Delete(zipFiles.First());
                                     extracted = true;
                                 }
+
                             }
 
                             if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))
@@ -901,7 +897,6 @@ Things you can try:
                     speedLabel.Text = "DLS: Finished Queue";
                     gamesAreDownloading = false;
                     isinstalling = false;
-
                     ChangeTitle(" \n\n");
         }
         
