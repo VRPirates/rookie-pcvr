@@ -30,6 +30,7 @@ namespace RookiePCVR
             {
                 if (!Directory.Exists(Environment.CurrentDirectory + "\\rclone"))
                 {
+                    Logger.Log($"rclone does not exist. Downloading from rclone.org", LogLevel.WARNING);
                     currentAccessedWebsite = "rclone";
                     string url = Environment.Is64BitOperatingSystem
                         ? "https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-windows-amd64.zip"
@@ -38,9 +39,11 @@ namespace RookiePCVR
 
                     client.DownloadFile(url, "rclone.zip");
 
+                    Logger.Log($"rclone download completed, unzipping contents");
                     Utilities.Zip.ExtractFile(Environment.CurrentDirectory + "\\rclone.zip", Environment.CurrentDirectory);
 
                     File.Delete("rclone.zip");
+                    Logger.Log($"rclone downloaded successfully");
 
                     string[] folders = Directory.GetDirectories(Environment.CurrentDirectory);
                     foreach (string folder in folders)
@@ -62,14 +65,20 @@ namespace RookiePCVR
                         Logger.Log($"Current RCLONE Version {version}");
                         if (version != "1.62.2")
                         {
-                            Logger.Log("RCLONE Version not matching! Downloading required version.", LogLevel.WARNING);
+                            Logger.Log("RCLONE Version doesn't match! Downloading required version.", LogLevel.WARNING);
                             File.Delete(pathToRclone);
                             currentAccessedWebsite = "rclone";
                             string architecture = Environment.Is64BitOperatingSystem ? "amd64" : "386";
                             string url = $"https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-windows-{architecture}.zip";
+
+                            Logger.Log($"Downloading from rclone.org", LogLevel.WARNING);
                             client.DownloadFile(url, "rclone.zip");
+
+                            Logger.Log($"rclone download completed, unzipping contents");
                             Utilities.Zip.ExtractFile(Path.Combine(Environment.CurrentDirectory, "rclone.zip"), Environment.CurrentDirectory);
                             File.Delete("rclone.zip");
+                            Logger.Log($"rclone downloaded successfully");
+                            
                             string rcloneDirectory = Path.Combine(Environment.CurrentDirectory, $"rclone-v1.62.2-windows-{architecture}");
                             File.Move(Path.Combine(rcloneDirectory, "rclone.exe"), pathToRclone);
                             Directory.Delete(rcloneDirectory, true);
