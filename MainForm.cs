@@ -751,21 +751,28 @@ Things you can try:
                         try
                         {
                             cleanupActiveDownloadStatus();
-                            if (hasPublicPCVRConfig)
-                            {
-                                if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))
-                                {
-                                    Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}", true);
-                                }
 
-                                if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameName}"))
+                            DialogResult res = FlexibleMessageBox.Show(
+                                $"{gameName} already has some downloaded files, do you want to delete them?\n\nClick NO to keep the files if you wish to resume your download later.",
+                                "Delete Temporary Files?", MessageBoxButtons.YesNo);
+
+                            if (res == DialogResult.Yes) {
+                                if (hasPublicPCVRConfig)
                                 {
-                                    Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameName}", true);
+                                    if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}"))
+                                    {
+                                        Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameNameHash}", true);
+                                    }
+
+                                    if (Directory.Exists($"{Properties.Settings.Default.downloadDir}\\{gameName}"))
+                                    {
+                                        Directory.Delete($"{Properties.Settings.Default.downloadDir}\\{gameName}", true);
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                Directory.Delete(Properties.Settings.Default.downloadDir + "\\" + gameName, true);
+                                else
+                                {
+                                    Directory.Delete(Properties.Settings.Default.downloadDir + "\\" + gameName, true);
+                                }
                             }
                         }
                         catch (Exception ex)
