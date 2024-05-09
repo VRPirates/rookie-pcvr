@@ -238,7 +238,7 @@ namespace RookiePCVR
             return prcoutput;
         }
 
-        public static ProcessOutput runRcloneCommand_PublicConfig(string command)
+        public static ProcessOutput runRcloneCommand_PublicConfig(string command, bool logOutput = true)
         {
             ProcessOutput prcoutput = new ProcessOutput();
             //Rclone output is unicode, else it will show garbage instead of unicode characters
@@ -317,7 +317,7 @@ namespace RookiePCVR
                     _ = Logger.Log($"Rclone error: {error}\n", LogLevel.ERROR);
                 }
 
-                if (!string.IsNullOrWhiteSpace(output))
+                if (!string.IsNullOrWhiteSpace(output) && logOutput == true)
                 {
                     _ = Logger.Log($"Rclone Output: {output}");
                 }
