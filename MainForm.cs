@@ -706,9 +706,7 @@ Things you can try:
                             string foo = await response.Content.ReadAsStringAsync();
                             //Debug.WriteLine("RESP CONTENT " + foo);
                             dynamic results = JsonConvert.DeserializeObject<dynamic>(foo);
-
-                            Console.Write(results);
-
+                            
                             if (results["transferring"] != null)
                             {
                                 double totalSize = 0;
