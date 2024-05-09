@@ -672,8 +672,8 @@ Things you can try:
                             t1 = new Thread(() =>
                             {
                                 string rclonecommand =
-                                $"copy \":http:/{gameNameHash}/\" \"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc";
-                                gameDownloadOutput = RCLONE.runRcloneCommand_PublicConfig(rclonecommand);
+                                $"copy \":http:/{gameNameHash}/\" \"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc --check-first --fast-list";
+                                gameDownloadOutput = RCLONE.runRcloneCommand_PublicConfig(rclonecommand, true);
                             });
                         }
                         else
@@ -687,7 +687,7 @@ Things you can try:
                         _ = Logger.Log($"rclone copy \"{currentRemote}:{SideloaderRCLONE.RcloneGamesFolder}/{gameName}\"");
                         t1 = new Thread(() =>
                         {
-                            gameDownloadOutput = RCLONE.runRcloneCommand_DownloadConfig($"copy \"{currentRemote}:{SideloaderRCLONE.RcloneGamesFolder}/{gameName}\" \"{Properties.Settings.Default.downloadDir}\\{gameName}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc --retries 1 --low-level-retries 1");
+                            gameDownloadOutput = RCLONE.runRcloneCommand_DownloadConfig($"copy \"{currentRemote}:{SideloaderRCLONE.RcloneGamesFolder}/{gameName}\" \"{Properties.Settings.Default.downloadDir}\\{gameName}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc --retries 1 --low-level-retries 1 --check-first");
                         });
                     }
 
@@ -696,7 +696,7 @@ Things you can try:
 
                     ChangeTitle("Downloading game " + gameName, false);
                     speedLabel.Text = "Starting download..."; etaLabel.Text = "Please wait...";
-                    int i = 0;
+
                     //Download
                     while (t1.IsAlive)
                     {
@@ -704,42 +704,57 @@ Things you can try:
                         {
                             HttpResponseMessage response = await client.PostAsync("http://127.0.0.1:5572/core/stats", null);
                             string foo = await response.Content.ReadAsStringAsync();
-                            Debug.WriteLine("RESP CONTENT " + foo);
+                            //Debug.WriteLine("RESP CONTENT " + foo);
                             dynamic results = JsonConvert.DeserializeObject<dynamic>(foo);
+
+                            Console.Write(results);
 
                             if (results["transferring"] != null)
                             {
-                                long allSize = 0;
-                                long downloaded = 0;
+                                double totalSize = 0;
+                                double downloadedSize = 0;
+                                long fileCount = 0;
+                                long transfersComplete = 0;
+                                long totalChecks = 0;
+                                long globalEta = 0;
+                                float speed = 0;
+                                float downloadSpeed = 0;
+                                double estimatedFileCount = 0;
 
-                                foreach (dynamic obj in results.transferring)
-                                {
-                                    allSize += obj["size"].ToObject<long>();
-                                    downloaded += obj["bytes"].ToObject<long>();
+                                totalSize = results["totalBytes"];
+                                downloadedSize = results["bytes"];
+                                fileCount = results["totalTransfers"];
+                                totalChecks = results["totalChecks"];
+                                transfersComplete = results["transfers"];
+                                globalEta = results["eta"];
+                                speed = results["speed"];
+                                estimatedFileCount = Math.Ceiling(totalSize / 524288000); // maximum part size
+
+                                if (totalChecks > fileCount) {
+                                    fileCount = totalChecks;
+                                }
+                                if (estimatedFileCount > fileCount) {
+                                    fileCount = (long)estimatedFileCount;
                                 }
 
-                                float downloadSpeed = results.speed.ToObject<float>() / 1000000;
-                                allSize /= 1000000;
-                                downloaded /= 1000000;
+                                downloadSpeed = speed / 1000000;
+                                totalSize /= 1000000;
+                                downloadedSize /= 1000000;
 
-                                Debug.WriteLine("Allsize: " + allSize + "\nDownloaded: " + downloaded + "\nValue: " + (downloaded / (double)allSize * 100));
+                                // Logger.Log("Files: " + transfersComplete.ToString() + "/" + fileCount.ToString() + " (" + Convert.ToInt32((downloadedSize / totalSize) * 100).ToString() + "% Complete)");
+                                // Logger.Log("Downloaded: " + downloadedSize.ToString() + " of " + totalSize.ToString());
 
                                 progressBar.Style = ProgressBarStyle.Continuous;
-                                progressBar.Value = Convert.ToInt32(downloaded / (double)allSize * 100);
+                                progressBar.Value = Convert.ToInt32((downloadedSize / totalSize) * 100);
 
-                                i++;
-                                if (i == 4)
-                                {
-                                    i = 0;
-                                    float seconds = (allSize - downloaded) / downloadSpeed;
-                                    TimeSpan time = TimeSpan.FromSeconds(seconds);
-                                    etaLabel.Text = "ETA: " + time.ToString(@"hh\:mm\:ss") + " left";
-                                }
+                                TimeSpan time = TimeSpan.FromSeconds(globalEta);
+                                etaLabel.Text = etaLabel.Text = "ETA: " + time.ToString(@"hh\:mm\:ss") + " left";
 
-                                speedLabel.Text = "DLS: " + string.Format("{0:0.00}", downloadSpeed) + " MB/s";
+                                speedLabel.Text = "DLS: " + transfersComplete.ToString() + "/" + fileCount.ToString() + " files - " + string.Format("{0:0.00}", downloadSpeed) + " MB/s";
                             }
                         }
-                        catch { }
+                        catch {
+                        }
 
                         await Task.Delay(100);
 
