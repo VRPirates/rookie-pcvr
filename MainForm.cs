@@ -618,6 +618,7 @@ Things you can try:
                     gameName = gamesQueueList.ToArray()[0];
                     string dir = Path.GetDirectoryName(gameName);
                     string gameDirectory = Properties.Settings.Default.downloadDir + "\\" + gameName;
+                    string downloadDirectory = Path.Combine(Properties.Settings.Default.downloadDir, gameName);
                     string path = gameDirectory;
 
                     string gameNameHash = string.Empty;
@@ -668,11 +669,12 @@ Things you can try:
 
                         if (doDownload)
                         {
+                            downloadDirectory = $"{Properties.Settings.Default.downloadDir}\\{gameNameHash}";
                             _ = Logger.Log($"rclone copy \"Public:{SideloaderRCLONE.RcloneGamesFolder}/{gameName}\"");
                             t1 = new Thread(() =>
                             {
                                 string rclonecommand =
-                                $"copy \":http:/{gameNameHash}/\" \"{Properties.Settings.Default.downloadDir}\\{gameNameHash}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc --check-first --fast-list";
+                                $"copy \":http:/{gameNameHash}/\" \"{downloadDirectory}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc --check-first --fast-list";
                                 gameDownloadOutput = RCLONE.runRcloneCommand_PublicConfig(rclonecommand, true);
                             });
                         }
@@ -684,11 +686,22 @@ Things you can try:
                     else
                     {
                         _ = Directory.CreateDirectory(gameDirectory);
-                        _ = Logger.Log($"rclone copy \"{currentRemote}:{SideloaderRCLONE.RcloneGamesFolder}/{gameName}\"");
+                        downloadDirectory = $"{SideloaderRCLONE.RcloneGamesFolder}/{gameName}";
+                        _ = Logger.Log($"rclone copy \"{currentRemote}:{downloadDirectory}\"");
                         t1 = new Thread(() =>
                         {
                             gameDownloadOutput = RCLONE.runRcloneCommand_DownloadConfig($"copy \"{currentRemote}:{SideloaderRCLONE.RcloneGamesFolder}/{gameName}\" \"{Properties.Settings.Default.downloadDir}\\{gameName}\" {extraArgs} {virtualFilesystemCompatibilityArg} --progress --rc --retries 1 --low-level-retries 1 --check-first");
                         });
+                    }
+
+                    if (Directory.Exists(downloadDirectory))
+                    {
+                        string[] partialFiles = Directory.GetFiles($"{downloadDirectory}", "*.partial");
+                        foreach (string file in partialFiles)
+                        {
+                            File.Delete(file);
+                            Logger.Log($"Deleted partial file: {file}");
+                        }
                     }
 
                     t1.IsBackground = true;
