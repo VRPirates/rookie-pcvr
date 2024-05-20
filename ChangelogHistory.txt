@@ -1,4 +1,8 @@
-﻿Rookie-PCVR 1.3
+﻿Rookie-PCVR 1.4
+- Fix: Remove auto-run to improve false positive detection
+
+
+Rookie-PCVR 1.3
 - Chore: Update Wiki URL
 
 
