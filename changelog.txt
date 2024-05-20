@@ -1,2 +1,7 @@
-Rookie-PCVR 1.4
-- Fix: Remove auto-run to improve false positive detection
+Rookie-PCVR 1.5
+- Feature: prompt to delete temp files, allows resuming downloads
+- Fix: Fix the progress bar snap-back
+- Fix: Download correct 7-zip for architecture
+- Chore: Update 7-zip to latest
+- Chore: Update rclone to 1.66.0
+- Chore: Additional Logging
