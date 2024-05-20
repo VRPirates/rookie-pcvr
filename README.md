@@ -4,6 +4,10 @@
 [![Downloads](https://img.shields.io/github/downloads/vrpirates/rookie-pcvr/total.svg)](https://github.com/vrpirates/rookie-pcvr/releases)
 ![Issues](https://img.shields.io/github/issues/vrpirates/rookie-pcvr)
 
+
+## As of May 20, 2024, this application is no longer maintained.
+
+
 rookie-pcvr uses the GPL license, any forks of it must have their source code made public on the internet.
 
 
